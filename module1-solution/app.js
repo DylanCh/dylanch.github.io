@@ -1,6 +1,11 @@
-var myAppModule = angular.module('LunchCheck', []);
+var LunchCheck = angular.module('LunchCheck', []);
 
 LunchCheck.controller('LunchCheckController', 
-                      ['$scope', function($scope) {}]
-
+                      LunchCheckController
 );
+
+LunchCheckController.$inject['$scope'];
+
+function LunchCheckController(){
+
+};
