@@ -12,7 +12,7 @@
         $scope.title="Lunch Checker";
         $scope.count=0;
         $scope.message;
-        jQuery('.btn').on('click',function(){
+        $scope.btnClick=function(){
             $scope.count=getCount();
             
             if($scope.count<=3 && $scope.count >0){
@@ -31,7 +31,7 @@
             jQuery('#message').text($scope.message);
             jQuery('#messageHolder').show();
             
-        });
+        };
 
     };
 
