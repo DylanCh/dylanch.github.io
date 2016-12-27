@@ -20,7 +20,7 @@
                 $scope.message="Enjoy!";
             }
             else if($scope.count>3){
-                jQuery('#message').css('color','light-green');
+                jQuery('#message').css('color','green');
                 $scope.message ="Too much!" ;
             }
             else if($scope.count===0){
