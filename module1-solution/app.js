@@ -28,7 +28,7 @@
                 $scope.message="Please enter data first";
             
             }
-            jQuery('#message').text($scope.message);
+            
             jQuery('#messageHolder').show();
             
         };
