@@ -29,6 +29,7 @@
         
         $scope.boughtList=[];
         $scope.boughtEmpty=true;
+        $scope.toBuyEmpty=false;
         
         function setBoughtEmpty(){
             if ($scope.boughtList.length===0){
@@ -36,6 +37,22 @@
             }
             else return false;
         };
+        
+        function setToBuyEmpty(){
+            var tbe;
+            for(var i =0; i<$scope.toBuy.length;i++){
+                if($scope.toBuy[i].bought===true){
+                    tbe = true;
+                }
+                else{
+                    tbe=false;
+                    break;
+                }
+            }
+            return tbe;
+        };
+        
+        //$scope.toBuyEmpty = setToBuyEmpty();
         
         $scope.btnOnClick = function addAndDropItems(itemName){
             var index;
@@ -56,10 +73,12 @@
             }
             $scope.toBuy[index].quantity +=10;
             $scope.toBuy[index].bought = true;
-            console.log($scope.toBuy[index].quantity);
+            //console.log($scope.toBuy[index].quantity);
             $scope.boughtList.push($scope.toBuy[index]);
             $scope.boughtEmpty=setBoughtEmpty();
-            console.log($scope.boughtEmpty);
+            $scope.toBuyEmpty = setToBuyEmpty();
+            console.log("Bought list empty: "+$scope.boughtEmpty);
+            console.log("To buy list empty: "+$scope.toBuyEmpty);
     }; // end function
         
     }; // end controller
