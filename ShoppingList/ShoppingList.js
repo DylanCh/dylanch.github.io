@@ -5,7 +5,10 @@
     shoppingListController.$inject = ['$scope'];
     
     shoppingListApp.filter('hideBoughtItems',function(){
-        
+        return function(item){
+            if(item.bought ===false){return false;}
+            else return true;
+        };
     });
     
     function shoppingListController($scope){
