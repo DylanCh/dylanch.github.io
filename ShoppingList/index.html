@@ -37,9 +37,9 @@
      <ul ng-repeat="item in toBuy">
          <li ng-if="item.bought===false" >Buy 10 {{item.name}}  <button class="btn btn-default" ng-click="btnOnClick(item.name)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
 <!--       <li>Buy 10 cookies <button class="btn btn-default" ng-click="btnOnClick('cookies')" ><span class="glyphicon glyphicon-ok"></span> Bought</button></li>-->
-          <li class="emptyMessage" ng-if="toBuyEmpty">Everything is bought!</li>
+          <!--<li class="emptyMessage" ng-if="toBuyEmpty">Everything is bought!</li>-->
       </ul>
-      
+      <span class="emptyMessage" ng-if="toBuyEmpty">Everything is bought!</span>
          <!--<div class="emptyMessage" ng-if="toBuyEmpty">Everything is bought!</div>-->
     </div>
 
