@@ -28,6 +28,15 @@
         ];  // end array     
         
         $scope.boughtList=[];
+        $scope.boughtEmpty=true;
+        
+        function setBoughtEmpty(){
+            if ($scope.boughtList.length===0){
+                return true;
+            }
+            else return false;
+        };
+        
         $scope.btnOnClick = function addAndDropItems(itemName){
             var index;
             if(itemName === 'cookies'){
@@ -39,16 +48,18 @@
             else if(itemName ==='bananas'){
                 index=2;
             }
-            else if(itemName===''){
+            else if(itemName==='milk'){
                 index=3;
             }
-            else if (itemName===''){
+            else if (itemName==='coconut'){
                 index=4;
             }
             $scope.toBuy[index].quantity +=10;
             $scope.toBuy[index].bought = true;
             console.log($scope.toBuy[index].quantity);
             $scope.boughtList.push($scope.toBuy[index]);
+            $scope.boughtEmpty=setBoughtEmpty();
+            console.log($scope.boughtEmpty);
     }; // end function
         
     }; // end controller
