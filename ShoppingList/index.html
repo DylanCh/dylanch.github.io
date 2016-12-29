@@ -48,7 +48,10 @@
      <!--  <li>Bought 10 cookies</li>-->
      <li ng-repeat="item in boughtList">Bought {{item.quantity}} {{item.name}}</li>
      </ul>
-<!--     <div class="emptyMessage">Nothing bought yet.</div>-->
+     <div class="emptyMessage" 
+          ng-if="boughtEmpty" 
+          >
+         Nothing bought yet.</div>
     </div>
   </div>
 </div>
