@@ -1,18 +1,16 @@
 (function () {
     var shoppingListApp = angular.module('shoppingListApp',[]);
-    shoppingListApp.controller('shoppingListController',shoppingListController);
+    shoppingListApp.service('ShoppingListCheckOffService',ShoppingListCheckOffService);
     
-    shoppingListController.$inject = ['$scope'];
+    shoppingListApp.controller('toBuyController',toBuyController);
+    shoppingListApp.controller('boughtController',boughtController);
     
-    shoppingListApp.filter('hideBoughtItems',function(){
-        return function(item){
-            if(item.bought ===false){return false;}
-            else return true;
-        };
-    });
+    toBuyController.$inject = ['ShoppingListCheckOffService'];
+    boughtController.$inject=['ShoppingListCheckOffService'];
     
-    function shoppingListController($scope){
-        $scope.toBuy=[
+    function ShoppingListCheckOffService(){
+        var service = this;
+        service.toBuy=[
              cookies={
                 name:'cookies',quantity:0,bought:false
             },
@@ -28,36 +26,31 @@
             coconut={
                 name:'coconut',quantity:0,bought:false
             }
-        ];  // end array     
-        
-        $scope.boughtList=[];
-        $scope.boughtEmpty=true;
-        $scope.toBuyEmpty=false;
-        
-        function setBoughtEmpty(){
-            if ($scope.boughtList.length===0){
-                return true;
-            }
-            else return false;
-        };
-        
-        function setToBuyEmpty(){
-            var tbe;
-            for(var i =0; i<$scope.toBuy.length;i++){
-                if($scope.toBuy[i].bought===true){
-                    tbe = true;
+        ];  // end array 
+        service.boughtList=[];
+
+        service.boughtEmpty;
+        service.toBuyEmpty;
+        service.setToBuyEmpty=function (){
+            //var tbe;
+            for(var i =0; i<service.toBuy.length;i++){
+                if(service.toBuy[i].bought===true){
+                    service.toBuyEmpty = true;
                 }
                 else{
-                    tbe=false;
+                    service.toBuyEmpty=false;
                     break;
                 }
             }
-            return tbe;
+        };
+        service.setBoughtEmpty=function(){
+            if (service.boughtList.length===0){
+                service.boughtEmpty= true;
+            }
+            else service.boughtEmpty= false;
         };
         
-        //$scope.toBuyEmpty = setToBuyEmpty();
-        
-        $scope.btnOnClick = function addAndDropItems(itemName){
+        service.btnOnClick = function (itemName){
             var index;
             if(itemName === 'cookies'){
                 index=0;
@@ -74,20 +67,56 @@
             else if (itemName==='coconut'){
                 index=4;
             }
-            $scope.toBuy[index].quantity +=10;
-            $scope.toBuy[index].bought = true;
+            service.toBuy[index].quantity +=10;
+            service.toBuy[index].bought = true;
             //console.log($scope.toBuy[index].quantity);
-            $scope.boughtList.push($scope.toBuy[index]);
-            $scope.boughtEmpty=setBoughtEmpty();
-            $scope.toBuyEmpty = setToBuyEmpty();
-            console.log("Bought list empty: "+$scope.boughtEmpty);
-            console.log("To buy list empty: "+$scope.toBuyEmpty);
-    }; // end function
+            service.boughtList.push(service.toBuy[index]);
+            //service.boughtEmpty=setBoughtEmpty();
+            //service.toBuyEmpty = setToBuyEmpty();
+        };
         
+        service.getToBuyList=function(){
+            return service.toBuy;
+        };
+        
+        service.getBoughtList = function(){
+            return service.boughtList;
+        };
+        
+        service.getToBuyEmpty=function(){
+            return service.toBuyEmpty;
+        };
+//        
+        service.getBoughtEmpty=function(){
+            return service.boughtEmpty;
+        };
+    };
+    
+
+    
+    function boughtController(ShoppingListCheckOffService){
+        var bought = this;
+        bought.boughtList = ShoppingListCheckOffService.getBoughtList();
+        bought.boughtEmpty = function(){
+             return ShoppingListCheckOffService.getBoughtEmpty();//(ShoppingListCheckOffService.getBoughtList().length===0);                
+        };
+    };
+    
+    function toBuyController(ShoppingListCheckOffService){
+        this.toBuy = ShoppingListCheckOffService.getToBuyList();
+        this.toBuyEmpty;
+        this.btnOnClick = function(itemName){
+                ShoppingListCheckOffService.btnOnClick(itemName);
+                ShoppingListCheckOffService.setBoughtEmpty();
+                ShoppingListCheckOffService.setToBuyEmpty();
+                this.toBuyEmpty=ShoppingListCheckOffService.getToBuyEmpty();
+                //console.log(ShoppingListCheckOffService.getToBuyEmpty());
+                //console.log(this.toBuyEmpty);
+                //console.log(ShoppingListCheckOffService.getBoughtEmpty());
+            };          
     }; // end controller
     
     
     
 }());
-
 
