@@ -10,7 +10,7 @@
     
     function ShoppingListCheckOffService(){
         var service = this;
-        service.toBuy=[
+        var toBuy=[
              cookies={
                 name:'cookies',quantity:0,bought:false
             },
@@ -27,27 +27,27 @@
                 name:'coconut',quantity:0,bought:false
             }
         ];  // end array 
-        service.boughtList=[];
+        var boughtList=[];
 
-        service.boughtEmpty;
-        service.toBuyEmpty;
+        var boughtEmpty;
+        var toBuyEmpty;
         service.setToBuyEmpty=function (){
             //var tbe;
-            for(var i =0; i<service.toBuy.length;i++){
-                if(service.toBuy[i].bought===true){
-                    service.toBuyEmpty = true;
+            for(var i =0; i<toBuy.length;i++){
+                if(toBuy[i].bought===true){
+                     toBuyEmpty = true;
                 }
                 else{
-                    service.toBuyEmpty=false;
+                    toBuyEmpty=false;
                     break;
                 }
             }
         };
         service.setBoughtEmpty=function(){
-            if (service.boughtList.length===0){
-                service.boughtEmpty= true;
+            if (boughtList.length===0){
+                boughtEmpty= true;
             }
-            else service.boughtEmpty= false;
+            else boughtEmpty= false;
         };
         
         service.btnOnClick = function (itemName){
@@ -67,28 +67,28 @@
             else if (itemName==='coconut'){
                 index=4;
             }
-            service.toBuy[index].quantity +=10;
-            service.toBuy[index].bought = true;
+            toBuy[index].quantity +=10;
+            toBuy[index].bought = true;
             //console.log($scope.toBuy[index].quantity);
-            service.boughtList.push(service.toBuy[index]);
+            boughtList.push(toBuy[index]);
             //service.boughtEmpty=setBoughtEmpty();
             //service.toBuyEmpty = setToBuyEmpty();
         };
         
         service.getToBuyList=function(){
-            return service.toBuy;
+            return toBuy;
         };
         
         service.getBoughtList = function(){
-            return service.boughtList;
+            return boughtList;
         };
         
         service.getToBuyEmpty=function(){
-            return service.toBuyEmpty;
+            return toBuyEmpty;
         };
 //        
         service.getBoughtEmpty=function(){
-            return service.boughtEmpty;
+            return boughtEmpty;
         };
     };
     
@@ -98,7 +98,7 @@
         var bought = this;
         bought.boughtList = ShoppingListCheckOffService.getBoughtList();
         bought.boughtEmpty = function(){
-             return ShoppingListCheckOffService.getBoughtEmpty();//(ShoppingListCheckOffService.getBoughtList().length===0);                
+             return ShoppingListCheckOffService.getBoughtEmpty();                
         };
     };
     
@@ -110,9 +110,6 @@
                 ShoppingListCheckOffService.setBoughtEmpty();
                 ShoppingListCheckOffService.setToBuyEmpty();
                 this.toBuyEmpty=ShoppingListCheckOffService.getToBuyEmpty();
-                //console.log(ShoppingListCheckOffService.getToBuyEmpty());
-                //console.log(this.toBuyEmpty);
-                //console.log(ShoppingListCheckOffService.getBoughtEmpty());
             };          
     }; // end controller
     
