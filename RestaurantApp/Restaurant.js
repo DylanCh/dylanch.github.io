@@ -2,18 +2,31 @@
     var NarrowItDownApp =angular.module('NarrowItDownApp',[]);
     NarrowItDownApp.service('MenuSearchService',MenuSearchService);
     NarrowItDownApp.controller('MenuController',MenuController);
-
+    NarrowItDownApp.directive('foundItems',FoundItems);
+    
+    function FoundItems(){
+        var ddo={            
+            controller:'MenuController',
+            scope:{
+                items:'='
+            },
+            //temperateUrl:'founditems.html',
+            replace:false
+        };
+        return ddo;
+    };
+    
     MenuSearchService.$inject=['$http'];
     function MenuSearchService($http){       
         this.getMatchedMenuItems=function(searchItem){
-             var foundItems =$http({
+             var results =$http({
                 method:'GET',
                 url:'https://davids-restaurant.herokuapp.com/menu_items.json'
                 ,params: {
                     name: searchItem
                 }
             });
-            return foundItems;
+            return results;
         }; // end function
     }; // end service
     
@@ -31,15 +44,15 @@
             m.promise=MenuSearchService.getMatchedMenuItems()
                 .then(function(result){
                     if (typeof result.data === 'object') {
-                        m.foundItems = new Array();
+                        m.founditems = new Array();
                         for (var i=0;i<result.data.menu_items.length;i++){
-                            if (result.data.menu_items[i].name.toLowerCase().indexOf(searchItem)>=0){
+                            if (result.data.menu_items[i].name.toLowerCase().indexOf(searchItem)>=0)
                             //if(result.data.menu_items[i].name.search(searchItem)>0){
                                 console.log(result.data.menu_items[i].name);
-                                m.foundItems.push(result.data.menu_items[i]);       
-                            }
+                                m.founditems.push(result.data.menu_items[i]);       
+                            //}
                         }
-                        console.log(m.foundItems);  
+                        console.log(m.founditems);  
                     }
                     else{
                         $q.reject(result.data);
@@ -50,4 +63,4 @@
             }; // end onclick
         }; // end controller
     
-})();  
+})();
