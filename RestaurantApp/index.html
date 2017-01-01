@@ -38,7 +38,7 @@ table tr th:last-child {
                ng-model="m.query" name="input1">
       <button class="btn btn-primary" ng-click="m.clickToSearch(m.query)">Narrow It Down For Me!</button>
     </div>
-    <div id="found" ng-if="m.searchClicked">
+    <found-items ng-if="m.searchClicked">
         <table>
             <thead>
                 <tr>
@@ -47,24 +47,17 @@ table tr th:last-child {
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in m.foundItems">               
+                <tr ng-repeat="item in m.founditems">               
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
                 </tr>
             </tbody>
         </table>
-
-<!--        <ol>
-            <li ng-repeat="item in m.foundItems">{{item.name}}</li>
-        </ol>-->
-        <!--<span>{{m.foundItems.menu_items.length}} results found</span>-->
     
-    </div>
+    </found-items>
     
     
 <br/><br/>
-    <!-- found-items should be implemented as a component -->
-    <!--<found-items found-items="...." on-remove="...."></found-items>-->
     
    </section>
 
