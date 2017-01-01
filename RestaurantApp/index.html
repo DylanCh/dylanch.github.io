@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
+    <style>
+        table {
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid black;
+}
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="Restaurant.js" type="text/javascript"></script>
+  </head>
+<body ng-app="NarrowItDownApp">
+   <section class="container" ng-controller="MenuController as m">
+    <h1>{{m.title}}</h1>
+    <div class="form-group">
+        <input type="text" placeholder="search term" class="form-control" 
+               ng-model="m.query" name="input1">
+      <button class="btn btn-primary" ng-click="m.clickToSearch(m.query)">Narrow It Down For Me!</button>
+    </div>
+    <div id="found" ng-if="m.searchClicked">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in m.foundItems">               
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+<!--        <ol>
+            <li ng-repeat="item in m.foundItems">{{item.name}}</li>
+        </ol>-->
+        <!--<span>{{m.foundItems.menu_items.length}} results found</span>-->
+    
+    </div>
+    
+    
+<br/><br/>
+    <!-- found-items should be implemented as a component -->
+    <!--<found-items found-items="...." on-remove="...."></found-items>-->
+    
+   </section>
+
+</body>
+</html>
