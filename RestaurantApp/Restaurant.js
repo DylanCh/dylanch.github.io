@@ -10,7 +10,7 @@
             scope:{
                 items:'='
             },
-            //temperateUrl:'founditems.html',
+            temperateUrl:'menuItems.html',
             replace:false
         };
         return ddo;
