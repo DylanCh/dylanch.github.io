@@ -3,16 +3,18 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Short Name</th>
                     <th>Description</th>
-                        <th></th>
+                    <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in m.founditems">               
                     <td>{{item.name}}</td>
+                    <td>{{item.short_name}}</td>
                     <td>{{item.description}}</td>
-                        <td> <button ng-click="m.badRemove($index);">Bad Remove Item</button>
-                                <button ng-click="m.onRemove({index: $index});">Remove Item</button> </td>
+                    <td> <button ng-click="m.remove(item.id);">Don't want this one!</button>
+                                </td>
                 </tr>
             </tbody>
         </table>
