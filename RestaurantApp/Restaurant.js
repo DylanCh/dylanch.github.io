@@ -62,6 +62,11 @@
                         console.log(error.message());
                 });
             }; // end onclick
-        }; // end controller
+        
+        m.remove = function(id){
+            if(id>-1)
+                m.foundItems.splice(id,1);
+        };
+    }; // end controller
     
 })();
