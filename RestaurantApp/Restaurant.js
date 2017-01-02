@@ -6,12 +6,13 @@
     
     function FoundItems(){
         var ddo={            
-            controller:'MenuController',
+            controller:MenuController,
 //             scope:{
 //                 items:'='
 //             },
             temperateUrl:'menuItems.html',
-            replace:false
+            replace:false,
+            bindToController:true
         };
         return ddo;
     };
