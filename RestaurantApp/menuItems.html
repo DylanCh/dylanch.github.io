@@ -4,12 +4,15 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
+                        <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in m.founditems">               
                     <td>{{item.name}}</td>
                     <td>{{item.description}}</td>
+                        <td> <button ng-click="m.badRemove($index);">Bad Remove Item</button>
+                                <button ng-click="m.onRemove({index: $index});">Remove Item</button>> </td>
                 </tr>
             </tbody>
         </table>
