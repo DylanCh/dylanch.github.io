@@ -10,7 +10,7 @@
 //             scope:{
 //                 items:'='
 //             },
-            temperateUrl:'menuItems.html',
+            templateUrl:'menuItems.html',          
             replace:false,
             bindToController:true
         };
