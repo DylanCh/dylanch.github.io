@@ -38,8 +38,8 @@ table tr th:last-child {
                ng-model="m.query" name="input1">
       <button class="btn btn-primary" ng-click="m.clickToSearch(m.query)">Narrow It Down For Me!</button>
     </div>
-    <found-items ng-if="m.searchClicked">
-        <table>
+    <found-items>
+<!--         <table>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -52,7 +52,7 @@ table tr th:last-child {
                     <td>{{item.description}}</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     
     </found-items>
     
