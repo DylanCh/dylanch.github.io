@@ -7,9 +7,9 @@
     function FoundItems(){
         var ddo={            
             controller:'MenuController',
-            scope:{
-                items:'='
-            },
+//             scope:{
+//                 items:'='
+//             },
             temperateUrl:'menuItems.html',
             replace:false
         };
