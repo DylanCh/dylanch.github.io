@@ -64,6 +64,7 @@
             }; // end onclick
         
         m.remove = function(id){
+            console.log(id);
             if(id>-1)
                 m.foundItems.splice(id,1);
         };
