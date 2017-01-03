@@ -64,7 +64,7 @@
             }; // end onclick
         
         m.remove = function(id){
-            if(Confirm("Removing "+id+" "+m.founditems[id].name)){
+            if(window.confirm("Removing "+id+" "+m.founditems[id].name)){
                 if(id>-1)
                     m.founditems.splice(id,1);
             }
