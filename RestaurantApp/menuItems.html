@@ -13,7 +13,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.short_name}}</td>
                     <td>{{item.description}}</td>
-                    <td> <button ng-click="m.remove(item.id);">Don't want this one!</button>
+                    <td> <button ng-click="m.remove($index);">Don't want this one!</button>
                                 </td>
                 </tr>
             </tbody>
