@@ -64,9 +64,10 @@
             }; // end onclick
         
         m.remove = function(id){
-            console.log(id);
-            if(id>-1)
-                m.foundItems.splice(id,1);
+            if(Confirm("Removing "+id+" "+m.founditems[id].name)){
+                if(id>-1)
+                    m.founditems.splice(id,1);
+            }
         };
     }; // end controller
     
