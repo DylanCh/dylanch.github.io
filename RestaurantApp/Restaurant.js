@@ -13,6 +13,7 @@
             templateUrl:'menuItems.html',          
             replace:false,
             bindToController:true
+            ,restrict:'E'
         };
         return ddo;
     };
