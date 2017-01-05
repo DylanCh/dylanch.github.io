@@ -7,9 +7,9 @@
     function FoundItems(){
         var ddo={            
             controller:MenuController,
-            scope:{
-                onRemove:'=?'
-            },
+//             scope:{
+//                 onRemove:'=?'
+//             },
             templateUrl:'menuItems.html',          
             replace:false,
             bindToController:true
