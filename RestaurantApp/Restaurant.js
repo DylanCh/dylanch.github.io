@@ -7,9 +7,9 @@
     function FoundItems(){
         var ddo={            
             controller:MenuController,
-//             scope:{
-//                 items:'='
-//             },
+            scope:{
+                onRemove:'=?'
+            },
             templateUrl:'menuItems.html',          
             replace:false,
             bindToController:true
@@ -64,10 +64,10 @@
             }; // end onclick
         
         m.remove = function(id){
-            if(window.confirm("Removing "+id+" "+m.founditems[id].name)){
+            //if(window.confirm("Removing "+id+" "+m.founditems[id].name)){
                 if(id>-1)
                     m.founditems.splice(id,1);
-            }
+            //}
         };
     }; // end controller
     
