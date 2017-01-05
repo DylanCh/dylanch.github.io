@@ -8,7 +8,7 @@
         var ddo={            
             controller:MenuController,
 //             scope:{
-//                 onRemove:'=?'
+//                 items:'='
 //             },
             templateUrl:'menuItems.html',          
             replace:false,
@@ -64,10 +64,10 @@
             }; // end onclick
         
         m.remove = function(id){
-            //if(window.confirm("Removing "+id+" "+m.founditems[id].name)){
+            if(window.confirm("Removing "+id+" "+m.founditems[id].name)){
                 if(id>-1)
                     m.founditems.splice(id,1);
-            //}
+            }
         };
     }; // end controller
     
