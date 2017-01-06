@@ -39,8 +39,8 @@ table tr th:last-child {
       <button class="btn btn-primary" ng-click="m.clickToSearch(m.query)">Narrow It Down For Me!</button>
     </div>
      <!-- found items displayed here -->
-    <found-items ng-if="m.query"></found-items>
-     <span ng-if="!m.query">Nothing found.</span>
+    <found-items ng-if="m.founditems.length>0"></found-items>
+     <span ng-if="!m.query || m.founditems.length === 0">Nothing found.</span>
     
 <br/><br/>
     
