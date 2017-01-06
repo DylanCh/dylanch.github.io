@@ -48,7 +48,7 @@
                     if (typeof result.data === 'object') {
                         m.founditems = new Array();
                         for (var i=0;i<result.data.menu_items.length;i++){
-                            if (result.data.menu_items[i].name.toLowerCase().indexOf(searchItem)>=0)
+                            if (result.data.menu_items[i].name.toLowerCase().indexOf(searchItem)>0 && searchItem)
                             //if(result.data.menu_items[i].name.search(searchItem)>0){
                                 console.log(result.data.menu_items[i].name);
                                 m.founditems.push(result.data.menu_items[i]);       
