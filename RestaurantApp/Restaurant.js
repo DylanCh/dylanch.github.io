@@ -43,19 +43,19 @@
             m.searchClicked=true;
             m.query=searchItem;
             m.queryEmpty;
-            console.log(m.query);
+            console.log("searching "+m.query);
             m.promise=MenuSearchService.getMatchedMenuItems()
                 .then(function(result){
-                    if (typeof result.data === 'object' && searchItem) {
+                    if (typeof result.data === 'object' && m.query) {
                         m.queryempty = false;
                         m.founditems = new Array();
                         for (var i=0;i<result.data.menu_items.length;i++){
                             if (result.data.menu_items[i].name.toLowerCase().indexOf(searchItem)>0){
-                                console.log(result.data.menu_items[i].name);
+                                //console.log(result.data.menu_items[i].name);
                                 m.founditems.push(result.data.menu_items[i]);       
                             } // end if
                         }//end for
-                        console.log(m.founditems);  
+                        //console.log(m.founditems);  
                     }// end if
                     else{
                         m.queryEmpty=true;
