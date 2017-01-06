@@ -7,9 +7,6 @@
     function FoundItems(){
         var ddo={            
             controller:MenuController,
-//             scope:{
-//                 items:'='
-//             },
             templateUrl:'menuItems.html',          
             replace:false,
             bindToController:true
