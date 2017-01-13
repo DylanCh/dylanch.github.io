@@ -1,0 +1,5 @@
+<section>
+    <div ng-repeat="cate in $ctrl.categoriesdata.slice().reverse()">
+        <a  ui-sref="item({catID: cate.short_name, catName: cate.name})">{{cate.name}} </a>
+    </div>
+</section>
