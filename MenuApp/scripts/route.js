@@ -9,12 +9,12 @@
 
     $stateProvider.state('home', {
       url: '/home',
-      templateUrl: 'ui-views/home.html'
+      templateUrl: 'views/home.html'
     });
 
     $stateProvider.state('categories', {
       url: '/categories',
-      templateUrl: 'ui-views/categories.html',
+      templateUrl: 'views/categories.html',
       resolve: {
         categoriesData: ['MenuDataService', function(MenuDataService) {
           return MenuDataService.getAllCategories();
