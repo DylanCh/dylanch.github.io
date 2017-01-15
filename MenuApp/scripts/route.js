@@ -26,7 +26,7 @@
     $stateProvider.state('item', {
       url: '/item/{catID}/{catName}',
       
-      templateUrl: 'ui-views/item.html',
+      templateUrl: 'views/item.html',
       resolve: {
         catName: ['$stateParams', function($stateParams){
           return $stateParams.catName;
