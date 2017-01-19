@@ -1,8 +1,8 @@
 (function() {
 'use strict';
 
-var app=angular.module('public');
-app.config(routeConfig);
+angular.module('public')
+.config(routeConfig);
 
 /**
  * Configures the routes and views
@@ -40,7 +40,14 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
-    }).state('public.signup', {
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/my-info/myinfo.html',
+      controller: 'MyInfoController',
+      controllerAs: 'ctrl'
+    })
+    .state('public.signup', {
       url: '/signup',
       templateUrl: 'src/public/signup-form/signupform.html',
       controller: 'SignupController',
@@ -50,11 +57,12 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems('').then(
             function(result)
             {
-                var item_array = [];
-                result.menu_items.forEach(function(e){
-                  item_array.push(e.short_name);
-                });
-                return item_array;
+                var array = new Array();
+                for(var i=0; i<result.menu_items.length;i++){
+                    array.push(result.menu_items[i].short_name);
+                }
+                console.log(array);
+                return array;
             }
           ); // end then
         }]
