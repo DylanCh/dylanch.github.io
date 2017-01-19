@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/restaurant.css">
         <link rel="stylesheet" href="css/common.css">
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body ng-app="restaurant" ng-strict-di>
 
@@ -52,7 +53,7 @@
                   <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
               </li>
               <li>
-                <a ui-sref="#">
+                <a ui-sref="public.myinfo()">
                   <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> My Info</a>
               </li>
               <li>
@@ -131,14 +132,17 @@
     <script src="src/common/menu.service.js"></script>
 
     <!-- Public Module -->
-    <script src="src/public/public.module.js"></script>
+    <script src="src/public/public.module.js" type="text/javascript"></script>
     <script src="src/public/public.routes.js"></script>
     <script src="src/public/menu/menu.controller.js"></script>
     <script src="src/public/menu-category/menu-category.component.js"></script>
     <script src="src/public/menu-items/menu-items.controller.js"></script>
     <script src="src/public/menu-item/menu-item.component.js"></script>
+    <script src="src/public/my-info/myinfo.controller.js" type="text/javascript"></script>
+    <!--<script src="src/public/myinfo.controller.js" type="text/javascript"></script>-->
     <script src="src/public/signup-form/signupform.controller.js" type="text/javascript"></script>
-    <!-- ADMIN SITE -->
+    
+<!-- ADMIN SITE -->
 
     <!--Application files -->
 
