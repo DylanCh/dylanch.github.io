@@ -1,0 +1,13 @@
+<div>
+  <center ng-if="!ctrl.customer.registered">
+    <p>Not Signed Up Yet. <a ui-sref="public.signup()"> Sign up Now!</a></p>
+  </center>
+  <section ng-if="ctrl.customer.registered">
+    <ul>
+      <li>Name: {{ctrl.customer.firstName}} {{ctrl.customer.lastName}}</li>
+      <li>Email: {{ctrl.customer.emailAddress}}</li>
+      <li>Phone number: {{ctrl.customer.phoneNumber}}</li>
+      <li>Favorite menu: <menu-item menu-item="ctrl.customer.menuItem"></menu-item></li>
+    </ul>
+  </section>
+</div>
