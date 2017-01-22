@@ -44,13 +44,13 @@ function routeConfig ($stateProvider) {
     .state('public.myinfo', {
       url: '/myinfo',
       templateUrl: 'src/public/my-info/myinfo.html',
-      controller: 'MyInfoController',
+      controller: 'myInfoController',
       controllerAs: 'ctrl'
     })
     .state('public.signup', {
       url: '/signup',
       templateUrl: 'src/public/signup-form/signupform.html',
-      controller: 'SignupController',
+      controller: 'signupController',
       controllerAs: 'ctrl'
       ,resolve: {
         menuItems: ['MenuService', function(MenuService){
