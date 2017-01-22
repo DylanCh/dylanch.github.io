@@ -1,10 +1,10 @@
 (function() {
 
   var signupPage =angular.module('public');
-  signupPage.controller("SignupController", SignupController);
+  signupPage.controller("signupController", signupController);
   
-  SignupController.$inject = ['DataService', 'menuItems'];
-  function SignupController(DataService, menuItems) {
+  signupController.$inject = ['DataService', 'menuItems'];
+  function signupController(DataService, menuItems) {
     var myself = this;
     myself.customer = DataService.getCustomerInformation();
     myself.menuNumberExists = true;

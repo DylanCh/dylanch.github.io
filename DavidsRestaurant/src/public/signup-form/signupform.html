@@ -18,25 +18,22 @@ input[type="email"],input[type="phone"]{
     color:#dc143c;
     background-color : #d1d1d1;
 }
-input [type="text"]{
+.signup-form-fields{
     color:#dc143c;
-    background-color: black;
+    background-color: #d1d1d1;
 }
 </style>
 <section class="panel panel-default">
-<!--  <div class="panel-heading">
-    <h4 class="panel-title">Sign up today!</h4>
-  </div>-->
   <form name="signupForm" novalidate  method="post" id="signUpForm">
       <p><font class="form-description">Fill out the form below</font> </p>
     <div class="input-group">
-      <span class="form-description">First Name: </span><input type="text" name="firstName" ng-model="ctrl.customer.firstName" required="true">
+      <span class="form-description">First Name: </span><input type="text" name="firstName" ng-model="ctrl.customer.firstName" required="true" class="signup-form-fields">
       <span class="errorMessage" ng-if="signupForm.firstName.$error.required && signupForm.firstName.$touched">First name is required.</span>
     </div>
     <br>
 
     <div class="input-group">
-        <span class="form-description">Last Name: </span><input type="text" name="lastName" ng-model="ctrl.customer.lastName" required="true">
+        <span class="form-description">Last Name: </span><input type="text" name="lastName" ng-model="ctrl.customer.lastName" required="true" class="signup-form-fields">
       <span class="errorMessage" ng-if="signupForm.lastName.$error.required && signupForm.lastName.$touched">Last name is required.</span>
     </div>
     <br>
@@ -53,7 +50,7 @@ input [type="text"]{
     <br>
 
     <div class="input-group">
-        <span class="form-description">Favorite menu item #: </span><input  type="text" name="menuNumber" ng-model="ctrl.customer.menuNumber" required="true">
+        <span class="form-description">Favorite menu item #: </span><input  type="text" name="menuNumber" ng-model="ctrl.customer.menuNumber" required="true" class="signup-form-fields">
       <span class="errorMessage" ng-if="!ctrl.menuNumberExists && signupForm.menuNumber.$touched">Menu number does not exist.</span>
     </div>
     <br>
