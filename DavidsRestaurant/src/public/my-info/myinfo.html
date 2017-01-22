@@ -1,6 +1,7 @@
 <div>
   <center ng-if="!ctrl.customer.registered">
-    <p>Not Signed Up Yet. <a ui-sref="public.signup()"> Sign up Now!</a></p>
+    <p>Not Signed Up Yet.</p>
+    <span><a ui-sref="public.signup()"> Sign up Now!</a></span>
   </center>
   <section ng-if="ctrl.customer.registered">
     <ul>
