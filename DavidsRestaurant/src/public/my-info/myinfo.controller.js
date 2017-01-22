@@ -1,10 +1,10 @@
 (function(){
 
   var myinfoPage = angular.module('public');
-  myinfoPage.controller('MyInfoController', MyInfoController);
+  myinfoPage.controller('myInfoController', myInfoController);
 
-MyInfoController.$inject = ['DataService','MenuService'];
-function MyInfoController(DataService,MenuService){
+myInfoController.$inject = ['DataService','MenuService'];
+function myInfoController(DataService,MenuService){
     var myself = this;
     var customer = DataService.getCustomerInformation();
     
