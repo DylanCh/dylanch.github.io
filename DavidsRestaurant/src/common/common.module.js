@@ -3,9 +3,7 @@
 
 angular.module('common', [])
 .constant('ApiPath'
-//    , 'https://ychaikin-course5.herokuapp.com'
-    ,'https://davids-restaurant.herokuapp.com'
-)
+    , 'https://dylan-davidchurestaurant.herokuapp.com')
 .config(config);
 
 config.$inject = ['$httpProvider'];
