@@ -43,7 +43,7 @@ input[type="email"],input[type="phone"]{
         <input  type="email" name="emailAddress" ng-model="ctrl.customer.emailAddress" required="true" ng-minlength="5">
       <span class="errorMessage" ng-if="signupForm.emailAddress.$error.required && signupForm.emailAddress.$touched">Email is missing!</span>
       <span class="errorMessage" ng-if="(signupForm.emailAddress.$error.minlength )">Minimum length of email is 5 characters</span>
-        <span class="errorMessage" ng-show="signupForm.input.$error.email">Email address format is invalid.</span>
+        <span class="errorMessage" ng-show="signupForm.emailAddress.$error.email">Email address format is invalid.</span>
       </div>
     <br>
     <div class="input-group">
@@ -54,9 +54,11 @@ input[type="email"],input[type="phone"]{
     <br>
 
     <div class="input-group">
-        <span class="form-description">Favorite menu item #: </span><input  type="text" name="menuNumber" ng-model="ctrl.customer.menuNumber" required="true" class="signup-form-fields">
+        <span class="form-description">Favorite menu item #: </span>
+        <input  type="text" name="menuNumber" ng-model="ctrl.customer.menuNumber" required="true" class="signup-form-fields" ng-minlength="5">
       <span class="errorMessage" ng-if="!ctrl.menuNumberExists && signupForm.menuNumber.$touched">Menu number does not exist.</span>
-    </div>
+        <span class="errorMessage" ng-if="ctrl.customer.menuNumber.$error.minlength">Menu # is at least 2 characters</span>
+      </div>
     <br>
 
     <div class="successMessage" ng-if="ctrl.customer.registered && !signupForm.$invalid">
