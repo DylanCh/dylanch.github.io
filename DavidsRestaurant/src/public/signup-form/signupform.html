@@ -42,8 +42,9 @@ input[type="email"],input[type="phone"]{
         <span class="form-description">Email: </span>
         <input  type="email" name="emailAddress" ng-model="ctrl.customer.emailAddress" required="true" ng-minlength="5">
       <span class="errorMessage" ng-if="signupForm.emailAddress.$error.required && signupForm.emailAddress.$touched">Email is missing!</span>
-      <span class="errorMessage" ng-if="(signUpForm.emailAddress.$error.minlength )">Minimum length of email is 5 characters</span>
-     </div>
+      <span class="errorMessage" ng-if="(signupForm.emailAddress.$error.minlength )">Minimum length of email is 5 characters</span>
+        <span class="errorMessage" ng-show="signupForm.input.$error.email">Email address format is invalid.</span>
+      </div>
     <br>
     <div class="input-group">
         <span class="form-description">Phone number (no dash and parenthesis): </span>
