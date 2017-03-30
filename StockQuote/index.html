@@ -24,7 +24,7 @@
            $('#searchBtn').click(function(e) {
 	       if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
 	           startDate = $('#quoteDate1').val();
-	           endDate = $('#quoteDate1').val();
+	           endDate = $('#quoteDate2').val();
 		   console.log("Selected dates: "+startDate+" - "+endDate);
 	       }
 		else {
@@ -35,11 +35,11 @@
 			startDate = date.toString();
 		}
 		var data = $('#quoteTextBox').val();
-		data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
+		var jsondata = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
 					  data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
 		 //console.log(data);
 		 $.getJSON(url,
-			   'q=' + data + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
+			   'q=' + jsondata + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
 			   function(response){
 			 	var arr = []; // http://stackoverflow.com/questions/1290131
 		 		 var totalReturned = response.query.count;
@@ -108,7 +108,8 @@
 		<div class='col-sm-3'>
 		    <div class="form-group">
 			<div class='input-group date' id='datetimepicker1'>
-			    <input type='text' class="form-control" id="quoteDate1" />
+			    <label>Start Date:</label> <input type='text' class="form-control" id="quoteDate1" />
+			    <label>End Date:</label> <input type='text' class="form-control" id="quoteDate2" />
 			    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 			    </span>
 			</div>
