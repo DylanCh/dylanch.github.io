@@ -25,6 +25,7 @@
 	       if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
 	           startDate = $('#quoteDate1').val();
 	           endDate = $('#quoteDate1').val();
+		   console.log("Selected dates: "+startDate+" - "+endDate);
 	       }
 		else {
 			var date = moment(new Date()).format('YYYY-MM-DD');//http://stackoverflow.com/a/15994039/5531761
