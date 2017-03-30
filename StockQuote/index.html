@@ -22,8 +22,13 @@
 // 	http://stackoverflow.com/questions/13458132/json-formatted-stock-quote-api-live-or-historical
 	$(function () {
            $('#searchBtn').click(function(e) {
-	       startDate = $('#quoteDate1').val();
-	       endDate = $('#quoteDate1').val();
+	       if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
+	           startDate = $('#quoteDate1').val();
+	           endDate = $('#quoteDate1').val();
+	       }
+		else {
+			var date = Date.Now;   
+		   }
 		var data = $('#quoteTextBox').val();
 		data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
 					  data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
@@ -32,7 +37,7 @@
 		
 	   var bindDatePicker = function() {
 			$(".date").datetimepicker({
-		format:'YYYY-MM-DD',
+		                format:'YYYY-MM-DD',
 				icons: {
 					time: "fa fa-clock-o",
 					date: "fa fa-calendar",
