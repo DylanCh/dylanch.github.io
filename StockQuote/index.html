@@ -36,7 +36,7 @@
                 }
             var data = $('#quoteTextBox').val();
             
-            if ($('#yahooFinanceRadio').is('checked')) {   
+            if ($('#yahooFinanceRadio').is(':checked')) {   
                 var jsondata = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
                             data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
                 //console.log(data);
@@ -64,6 +64,9 @@
                     alert('http://datatables.org/ is down\n'+ 'Error code: '+ jqXHR.status);
                 }); // http://stackoverflow.com/a/13374013/5531761
             }
+	    else {
+	    	alert('Please select a quote provider.');
+	    }
         });
             
         var bindDatePicker = function() {
