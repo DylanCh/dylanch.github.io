@@ -13,13 +13,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript">
       	var url = 'http://query.yahooapis.com/v1/public/yql';
 	var startDate = new String("");
 	var endDate = new String("");
-// 	http://stackoverflow.com/questions/13458132/json-formatted-stock-quote-api-live-or-historical
+// 	http://stackoverflow.com/questions/13458132/
 	$(function () {
            $('#searchBtn').click(function(e) {
 	       if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
@@ -27,7 +27,7 @@
 	           endDate = $('#quoteDate1').val();
 	       }
 		else {
-			var date = new Date();
+			var date = moment(new Date()).format('YYYY-MM-DD');//http://stackoverflow.com/a/15994039/5531761
 			endDate = date.toString();
 			console.log('today is '+ endDate);
 			date.setDate(date.getDate()-1);
@@ -99,9 +99,9 @@
   </head>
   <body>
     <div class="container">
-	  <div class="row">
+<!-- 	  <div class="row">
 	    Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
-	  </div>
+	  </div> -->
 	  <br />
 	    <div class="row">
 		<div class='col-sm-3'>
