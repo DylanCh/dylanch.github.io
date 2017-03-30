@@ -27,8 +27,11 @@
 	           endDate = $('#quoteDate1').val();
 	       }
 		else {
-			var date = Date.Now;   
-		   }
+			var date = Date.Now;
+			endDate = date.toString();
+			date.setDate(date.getDate-1);
+			startDate = date.toString();
+		}
 		var data = $('#quoteTextBox').val();
 		data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
 					  data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
