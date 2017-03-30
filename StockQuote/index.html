@@ -38,8 +38,8 @@
 		 //console.log(data);
 		 $.getJSON(url,
 			   'q=' + data + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
-			   var arr = []; // http://stackoverflow.com/questions/1290131
 			   function(response){
+			 	var arr = []; // http://stackoverflow.com/questions/1290131
 		 		 var totalReturned = response.query.count;
 			 	 for (var i = 0; i < totalReturned; ++i) {
 					var stock = response.query.results.quote[i];
