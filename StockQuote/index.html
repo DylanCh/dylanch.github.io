@@ -18,6 +18,14 @@
 	var endDate = new String("");
 // 	http://stackoverflow.com/questions/13458132/json-formatted-stock-quote-api-live-or-historical
 	$(function () {
+           $('#searchBtn').click(function(e) {
+	       startDate = $('#quoteDate1').val();
+	       endDate = $('#quoteDate1').val();
+		var data = $('#quoteTextBox').val();
+		data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
+					  data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
+	   });
+		
 	   var bindDatePicker = function() {
 			$(".date").datetimepicker({
 		format:'YYYY-MM-DD',
@@ -67,13 +75,15 @@
 		<div class='col-sm-3'>
 		    <div class="form-group">
 			<div class='input-group date' id='datetimepicker1'>
-			    <input type='text' class="form-control" />
+			    <input type='text' class="form-control" id="quoteDate1" />
 			    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 			    </span>
 			</div>
+			 <input type="text" id="quoteTextBox" class="form-control" />
 		    </div>
 		</div>
 	    </div>
+	    <input type="button" id="searchBtn" value="Search Quote" class="form-control" />
 	</div>
   </body>
 </html>
