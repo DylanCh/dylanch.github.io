@@ -27,9 +27,9 @@
 	           endDate = $('#quoteDate1').val();
 	       }
 		else {
-			var date = Date.now;
+			var date = new Date();
 			endDate = date.toString();
-			date.setDate(Date.now.getDate()-1);
+			date.setDate(date.getDate()-1);
 			startDate = date.toString();
 		}
 		var data = $('#quoteTextBox').val();
