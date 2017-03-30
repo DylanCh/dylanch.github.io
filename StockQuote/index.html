@@ -36,6 +36,22 @@
 		data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
 					  data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
 		 console.log(data);
+		 $.getJSON(url,
+			   'q=' + data + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
+			   var arr = []; // http://stackoverflow.com/questions/1290131/javascript-how-to-create-an-array-of-object-literals-in-a-loop
+			   function(response){
+		 		 var totalReturned = response.query.count;
+			 	 for (var i = 0; i < totalReturned; ++i) {
+					var stock = response.query.results.quote[i];
+					var symbol = stock.symbol;
+					var percent_change = stock.Change_PercentChange;
+					var changeRealTime = stock.ChangeRealtime; 
+					arr.push(
+						id: stock,
+						
+					);
+			}
+		 });
 	   });
 		
 	   var bindDatePicker = function() {
