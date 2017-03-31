@@ -1,140 +1,137 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      Welcome to Stock Quote App
-    </title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <head>
+        <title>Welcome to Stock Quote App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript">
-      	var url = 'http://query.yahooapis.com/v1/public/yql';
-        var startDate = new String("");
-        var endDate = new String("");
-    // 	http://stackoverflow.com/questions/13458132/
-        $(function () {
-            $('#searchBtn').click(function(e) {
-                if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
-                    startDate = $('#quoteDate1').val();
-                    endDate = $('#quoteDate1').val();
-                    console.log("Selected dates: "+startDate+" - "+endDate);
-                }
-                else {
-                    var date = moment(new Date()).format('YYYY-MM-DD');//http://stackoverflow.com/a/15994039/5531761
-                    endDate = date.toString();
-                    console.log('today is '+ endDate);
-                    date.setDate(date.getDate()-1);
-                    startDate = date.toString();
-                }
-            var data = $('#quoteTextBox').val();
-            
-            if ($('#yahooFinanceRadio').is(':checked')) {   
-                var jsondata = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
-                            data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
-                //console.log(data);
-                var req= $.getJSON(url,
-                    'q=' + jsondata + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
-                    function(response){
-                        var arr = []; // http://stackoverflow.com/questions/1290131
-                        var totalReturned = response.query.count;
-                        for (var i = 0; i < totalReturned; ++i) {
-                            var stock = response.query.results.quote[i];
-        // 					var symbol = stock.symbol;
-        // 					var percent_change = stock.Change_PercentChange;
-        // 					var changeRealTime = stock.ChangeRealtime; 
-                            arr.push({
-                                id: stock,
-                                symbol: stock.symbol,
-                                percent_change : stock.Change_PercentChange,
-                                changeRealTime : stock.ChangeRealtime
-                            });
-                            console.log(arr[i]);
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript">
+            var url = 'http://query.yahooapis.com/v1/public/yql'; // 	http://stackoverflow.com/questions/13458132/
+            var startDate = new String("");
+            var endDate = new String("");
+            $(function () {
+                $('#searchBtn').click(function(e) {
+                    if ($.trim($('#quoteDate1').val()).length > 0 && $('#quoteDate1').val().length>0) {
+                        startDate = $('#quoteDate1').val();
+                        endDate = $('#quoteDate1').val();
+                        console.log("Selected dates: "+startDate+" - "+endDate);
                     }
-                });
-            
-                req.error(function(jqXHR, textStatus, errorThrown){
-                    alert('http://datatables.org/ is down\n'+ 'Error code: '+ jqXHR.status);
-                }); // http://stackoverflow.com/a/13374013/5531761
+                    else {
+                        var date = moment(new Date()).format('YYYY-MM-DD');//http://stackoverflow.com/a/15994039/5531761
+                        endDate = date.toString();
+                        console.log('today is '+ endDate);
+                        date.setDate(date.getDate()-1);
+                        startDate = date.toString();
+                    }
+                var data = $('#quoteTextBox').val();
+                
+                if ($('#yahooFinanceRadio').is(':checked')) {   
+                    var jsondata = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol in ("'+
+                                data +'") and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
+                    //console.log(data);
+                    var req= $.getJSON(url,
+                        'q=' + jsondata + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json",
+                        function(response){
+                            var arr = []; // http://stackoverflow.com/questions/1290131
+                            var totalReturned = response.query.count;
+                            for (var i = 0; i < totalReturned; ++i) {
+                                var stock = response.query.results.quote[i];
+            // 					var symbol = stock.symbol;
+            // 					var percent_change = stock.Change_PercentChange;
+            // 					var changeRealTime = stock.ChangeRealtime; 
+                                arr.push({
+                                    id: stock,
+                                    symbol: stock.symbol,
+                                    percent_change : stock.Change_PercentChange,
+                                    changeRealTime : stock.ChangeRealtime
+                                });
+                                console.log(arr[i]);
+                        }
+                    });
+                
+                    req.error(function(jqXHR, textStatus, errorThrown){
+                        alert('http://datatables.org/ is down\n'+ 'Error code: '+ jqXHR.status);
+                    }); // http://stackoverflow.com/a/13374013/5531761
+                }
+            });
+                
+            var bindDatePicker = function() {
+                    $(".date").datetimepicker({
+                                format:'YYYY-MM-DD',
+                        icons: {
+                            time: "fa fa-clock-o",
+                            date: "fa fa-calendar",
+                            up: "fa fa-arrow-up",
+                            down: "fa fa-arrow-down"
+                        }
+                    }).find('input:first').on("blur",function () {
+                        // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+                        // update the format if it's yyyy-mm-dd
+                        var date = parseDate($(this).val());
+                        if (! isValidDate(date)) {
+                            //create date based on momentjs (we have that)
+                            date = moment().format('YYYY-MM-DD');
+                        }
+                        $(this).val(date);
+                    });
+                }
+            var isValidDate = function(value, format) {
+                    format = format || false;
+                    // lets parse the date to the best of our knowledge
+                    if (format) {
+                        value = parseDate(value);
+                    }
+                    var timestamp = Date.parse(value);
+                    return isNaN(timestamp) == false;
             }
-	    else {
-	    	alert('Please select a quote provider.');
-	    }
-        });
-            
-        var bindDatePicker = function() {
-                $(".date").datetimepicker({
-                            format:'YYYY-MM-DD',
-                    icons: {
-                        time: "fa fa-clock-o",
-                        date: "fa fa-calendar",
-                        up: "fa fa-arrow-up",
-                        down: "fa fa-arrow-down"
-                    }
-                }).find('input:first').on("blur",function () {
-                    // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
-                    // update the format if it's yyyy-mm-dd
-                    var date = parseDate($(this).val());
-                    if (! isValidDate(date)) {
-                        //create date based on momentjs (we have that)
-                        date = moment().format('YYYY-MM-DD');
-                    }
-                    $(this).val(date);
-                });
+            var parseDate = function(value) {
+                    var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+                    if (m)
+                        value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+                    return value;
             }
-        var isValidDate = function(value, format) {
-                format = format || false;
-                // lets parse the date to the best of our knowledge
-                if (format) {
-                    value = parseDate(value);
-                }
-                var timestamp = Date.parse(value);
-                return isNaN(timestamp) == false;
-        }
-        var parseDate = function(value) {
-                var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
-                if (m)
-                    value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
-                return value;
-        }
-        bindDatePicker();
-        });
-    </script>
+            bindDatePicker();
+            });
+        </script>
   </head>
-  <body>
-    <div class="container">
-<!-- 	  <div class="row">
-	    Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
-	  </div> -->
-	  <br />
-	    <div class="row">
-		<div class='col-sm-3'>
-		    <div class="form-group">
-			<div class='input-group date' id='datetimepicker1'>
-			    <label class="form-control">Date:</label> <input type='text' class="form-control" id="quoteDate1" />
-<!-- 			    <br />
-			    <label class="form-control">End Date:</label> <input type='text' class="form-control" id="quoteDate2" /> -->
-			    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-			    </span>
-			</div>
-			    <div class="radio">
-			     <label>
-				      <input id="yahooFinanceRadio" name="sampleinlineradio" value="Yahoo Finance" type="radio">
-				      Yahoo Finance</label>
-			    </div>
-			 <input type="text" id="quoteTextBox" class="form-control" placeholder="Quote (e.g. AMZN)" />
-			 <input type="button" id="searchBtn" value="Search Quote" class="form-control" />
-		    </div>
-		</div>
-		
-	    </div>	    
-	</div>
-  </body>
+    <body>
+        <div class="container">
+            <!--<div class="row">
+                Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy
+            </div> -->
+            <br />
+            <div class="row">
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <label class="form-control">Date:</label> 
+                            <a target="_blank" href="#" 
+                                title="Date formats: yyyy-mm-dd, yyyymmdd, dd-mm-yyyy, dd/mm/yyyy, ddmmyyyyy">
+                                <img src="shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" />
+                            </a>
+                            <br />
+                            <input type='text' class="form-control" id="quoteDate1" />
+                            <!-- 			    <br />
+                            <label class="form-control">End Date:</label> <input type='text' class="form-control" id="quoteDate2" /> -->
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <div class="radio">
+                        <label>
+                            <input id="yahooFinanceRadio" name="sampleinlineradio" value="Yahoo Finance" type="radio">
+                            Yahoo Finance</label>
+                        </div>
+                        <input type="text" id="quoteTextBox" class="form-control" placeholder="Quote (e.g. AMZN)" />
+                        <input type="button" id="searchBtn" value="Search Quote" class="form-control" />
+                    </div>
+                </div>            
+            </div>	    
+        </div>
+    </body>
 </html>
