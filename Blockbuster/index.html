@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome to Blockbuster App</title>
+		<link rel="shortcut icon" href="https://cdn.pastemagazine.com/www/articles/blockbuster_lead.jpg">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			var jsonURL = 'http://www.imdbapi.com/?t=';
+			$(function(){
+				$('#searchBtn').click(function(e){
+					e.preventDefault();
+					var title = $('#title').val();
+					console.log(title);
+					$.ajax({
+						url: jsonURL + title,
+						type:'GET',
+						dataType: 'json',
+						success : function(data){
+							var year = data.Year;
+							$('#displayArea').prepend('<div>'+year+'</div>')
+						},
+						error: function(jqXHR,textStatus,errorThrown){
+							alert ('Error: '+textStatus);
+						}
+					});
+				}) // end onclick
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Blockbuster App</h2>
+		<div id="w" class="form-group">
+				<table class="table">
+					<tr> 
+						<td>
+							<label class="form-control">Search by title: </label>
+						</td>
+						<td>
+							<input class="form-control" type="text" id="title" name="title" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="button" value="Search" id="searchBtn" class="form-control" />
+							<input type="reset" value="Rest" class="form-control" />
+						</td>
+					</tr>
+				</table>
+		</div>
+		<div id="displayArea">
+		</div>	
+	</body>
+</html>
