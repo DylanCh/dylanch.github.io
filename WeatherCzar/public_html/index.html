@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head ng-app="weatherForm">
+        <title>Weather Czar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		rel="stylesheet" type="text/css" >
+        <link rel="icon" 
+              type="image/png" href="#" >
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="js/AppController.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="panel panel-default" ng-controller="weatherController">
+            <div class="panel-heading">Where are you?</div>
+            <div class="form-group panel-body" >
+            <form>
+               <table class="table">
+                    <tr>
+                        <td><input type="text" placeholder="Enter a your city" id="city" ng-model="cityName" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <!--<select id="countrySelect" class="form-control bfh-countries" data-country="US"></select>-->
+                            <input type="text" id="countrySelect" ng-model="countryCode" class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button value="Get weather now" id="submitBtn" ng-click="getWeather()" class="form-control">Get Weather Now!</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="panel-body">
+            <ul id="result"></ul>
+        </div>
+        </div>
+    </body>
+</html>
