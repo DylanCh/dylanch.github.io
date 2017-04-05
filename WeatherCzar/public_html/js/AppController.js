@@ -3,12 +3,13 @@
     
     app.appName = 'WeatherCzar';
     
-    var urlRoot = 'api.openweathermap.org/data/2.5/weather?q=';
+    var urlRoot = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
     
     app.controller('weatherController', ['$scope', function ($scope) {
            $scope.urlRoot = new String(urlRoot);
             $scope.countryCode= new String("");
             $scope.cityName=new String('');
+            $scope.modelData;
             
             $scope.getWeather = function(){
                 console.log('Loading weather in '+$scope.countryCode +$scope.cityName);
@@ -19,9 +20,12 @@
                 
                 var getW =  $.getJSON($scope.urlRoot,function(data){
                     var items=[];
-                    $each(data,function(key,val){
+                    $scope.$apply(function(){
+                        $scope.modelData = data;
+                        $each($scope.modelData,function(key,val){
                         console.log(key+" "+val);
                         $('#result').prepend('<li>'+key+" "+val+'</li>');
+                    });
                     });
                 }); // end getJson
                 
