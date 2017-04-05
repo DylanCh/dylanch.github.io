@@ -1,0 +1,8 @@
+{
+    "name": "WeatherCzar.Web",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "HJ Chen",
+    "contributors": [],
+    "dependencies": {}
+}
