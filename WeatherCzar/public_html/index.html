@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head ng-app="weatherForm">
+<html ng-app="weatherForm">
+    <head >
         <title>Weather Czar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,11 @@
     </head>
     <body>
         <div class="panel panel-default" ng-controller="weatherController">
-            <div class="panel-heading">Where are you?</div>
+            <!--<div class="panel-heading">Where are you?</div>-->
             <div class="form-group panel-body" >
             <form>
                <table class="table">
+                   <thead class="panel-heading">Where are you?</thead>
                     <tr>
                         <td><input type="text" placeholder="Enter a your city" id="city" ng-model="cityName" class="form-control" /></td>
                     </tr>
