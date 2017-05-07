@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
 		rel="stylesheet" type="text/css" >
         <link rel="icon" 
@@ -14,33 +13,117 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script src="js/AppController.js" type="text/javascript"></script>
     </head>
-    <body>
-        <div class="panel panel-default" ng-controller="weatherController">
-            <!--<div class="panel-heading">Where are you?</div>-->
-            <div class="form-group panel-body" >
+    <body class="container">
+        <div class="panel panel-default" ng-controller="weatherController" 
+             style="vertical-align: middle; text-align: center; height: 100%; width: 100%;">
+            <div class="form-group panel-group" style="height: 100%;">
             <form>
                <table class="table">
-                   <thead class="panel-heading">Where are you?</thead>
-                    <tr>
-                        <td><input type="text" placeholder="Enter a your city" id="city" ng-model="cityName" class="form-control" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <!--<select id="countrySelect" class="form-control bfh-countries" data-country="US"></select>-->
-                            <input type="text" id="countrySelect" ng-model="countryCode" class="form-control" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button value="Get weather now" id="submitBtn" ng-click="getWeather()" class="form-control">Get Weather Now!</button>
-                        </td>
-                    </tr>
+                   <thead class="panel-heading">
+                       <tr>
+                           <th>
+                            Where are you?
+                           </th>
+                       </tr>
+                   </thead>
+                   <tbody class="panel-body">
+                        <tr>
+                            <td><input type="text" placeholder="Enter a your city" id="city" ng-model="cityName" class="form-control" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="form-control" id="countrySelect" ng-model="countryCode">
+                                    <option ng-repeat="c in countryList" ng-value="c.countryCode">
+                                        {{c.countryName}}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr ng-show="countryCode=='US'">
+                            <td>
+                                <select ng-model="stateName" class="form-control">
+                                    <option value="" selected disabled style="color:grey;">
+                                        Please select the state (Optional)
+                                    </option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="submitBtn" ng-click="getWeather()" class="form-control btn-primary">Get Weather Now!</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button onclick="javascript:location.reload();" class="form-control btn-danger" ng-show="showStartOver==true">Start Over</button>
+                            </td>
+                        </tr>
+                   </tbody>
                 </table>
             </form>
         </div>
-        <div class="panel-body">
-            <ul id="result"></ul>
+            <div class="panel-body container" style="width: 100%">
+                <ul id="result" class="list-group"></ul>
+            </div>
         </div>
-        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('body').css('background-image','url(http://www.publicdomainpictures.net/pictures/150000/velka/tropical-beach-1454007190ZAK.jpg)');
+                
+                $('select option[value="US"]').prop("selected",true);
+                
+            });
+        </script>
     </body>
 </html>
