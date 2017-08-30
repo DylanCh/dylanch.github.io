@@ -1,0 +1,18 @@
+.preview {
+  width:100%;
+  max-height:400px;
+}
+
+body{
+  min-height: 884px; cursor: auto;
+}
+
+.linkedin{
+  margin: 0 auto;
+  width:100%;
+}
+
+.linkedin img{
+  height:100px;
+  width:200px
+}
