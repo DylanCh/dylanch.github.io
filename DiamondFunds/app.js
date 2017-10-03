@@ -67,11 +67,15 @@ var calculateWaitTime = (alreadyHave,monthlySaveUps,priceTotal)=>{
 };
 
 var calculateTotalCost = (diamond,ring,warranty)=>{
+  diamond = diamond.toString().replace(',','');
+  ring = ring.toString().replace(',','');
   let total = parseFloat(diamond) + parseFloat(ring);
   total = 0.045*total +total;
   console.log(warranty);
-  if(warranty!==undefined && !(typeof warranty === typeof '' && warranty.trim()===''))
+  if(warranty!==undefined && !(typeof warranty === typeof '' && warranty.trim()==='')){
+    warranty =warranty.toString().replace(',','');
       total+= parseFloat(warranty);
+  }
   return total;
 };
 
