@@ -69,7 +69,9 @@ var calculateWaitTime = (alreadyHave,monthlySaveUps,priceTotal)=>{
 var calculateTotalCost = (diamond,ring,warranty)=>{
   let total = parseFloat(diamond) + parseFloat(ring);
   total = 0.045*total +total;
-  total+= parseFloat(warranty);
+  console.log(warranty);
+  if(warranty!==undefined && !(typeof warranty === typeof '' && warranty.trim()===''))
+      total+= parseFloat(warranty);
   return total;
 };
 
@@ -79,7 +81,7 @@ var diamondFunCtrl = ($scope)=>{
   $scope.currentBalanceMinusCheckingMinimum = ($scope.currentBalance - $scope.checkingMinimumBalance);
   $scope.diamondPrice = 0;
   $scope.ringPrice = 0;
- $scope.salesTax='4.5%';
+  $scope.salesTax='4.5%';
   $scope.warranty=100;
   $scope.estimateWaitTime = '';
   $scope.calculateWaitTime = ()=>{
@@ -89,7 +91,6 @@ var diamondFunCtrl = ($scope)=>{
                                      $scope.ringPrice,
                                     $scope.warranty));
     $scope.estimateWaitTime = estimateWaitTime;
-    //alert(estimateWaitTime);
   };
 };
 
