@@ -63,7 +63,7 @@ var monthOrMonths = (estimateTime)=>{
 var calculateWaitTime = (alreadyHave,monthlySaveUps,priceTotal)=>{
   let estimateTime = (priceTotal - alreadyHave + checkingMinimumBalance)/monthlySaveUps;
   return (isNaN(estimateTime)) ?  'Cannot calculate'
-                               : monthOrMonths(Math.ceil(estimateTime));
+                               : monthOrMonths(Math.floor(estimateTime));
 };
 
 var calculateTotalCost = (diamond,ring,warranty)=>{
