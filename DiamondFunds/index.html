@@ -27,44 +27,36 @@
             <div class="form-group">
                 <table class="table">
                 <tr>
-                    <td>
-                    <label>Diamond price:&nbsp;&nbsp; </label>
-                    </td>
-                    <td>
+                    <td colspan="2">
+                    <label>Diamond price:&nbsp;&nbsp; </label>                    
                     <input class="form-control" type="text" placeholder="Diamond price" ng-model="diamondPrice"/><small>Please enter numbers only (no $)</small>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                     <label>Ring price (put 0 if ring and diamond are together): </label>
-                    </td>
-                    <td>
                     <input class="form-control" type="text" placeholder="Ring price" ng-model="ringPrice"/><small>Please enter numbers only (no $)</small>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                     <label>Warranty (if you're not sure, at least 100): </label>
-                    </td>
-                    <td>
                     <input class="form-control" type="text" placeholder="Warranty" ng-model="warranty"/><small>Please enter numbers only (no $)</small>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                     <label>Sales tax:&nbsp;&nbsp; </label>
-                    </td>
-                    <td>
                     <input class="form-control" type="text" placeholder="Sales Tax" ng-model="salesTax" readonly="readonly"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                    <label>Estimate wait time:&nbsp;&nbsp;</label>
-                    <button class="btn-primary" ng-click="calculateWaitTime()">Calculate</button>
+                        <label>Estimate wait time:&nbsp;&nbsp;</label>
+                        <button class="btn btn-primary" ng-click="calculateWaitTime()">Calculate</button>
                     </td>
                     <td>
-                    <input class="form-control" type="text" ng-model="estimateWaitTime" disabled="disabled"/>
+                        <input class="form-control" type="text" ng-model="estimateWaitTime" disabled="disabled"/>
                     </td>
                 </tr>
                 </table>
