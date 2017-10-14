@@ -8,7 +8,7 @@ const out = [
   {type:'MetroCard',amt:120.00},
   {type:'To Savings Account',amt:250.00},
   {type:'Rent',amt:450.00},
-  {type:'Health Insurance',amt:330.00},
+  {type:'Health Insurance',amt:400.00},
   {type:'flexible',amt:100.00}
 ];
 
@@ -80,13 +80,13 @@ var calculateTotalCost = (diamond,ring,warranty)=>{
 };
 
 var diamondFunCtrl = ($scope)=>{
-  $scope.currentBalance = 2334.62;
+  $scope.currentBalance = 3455.35;
   $scope.checkingMinimumBalance = checkingMinimumBalance;
   $scope.currentBalanceMinusCheckingMinimum = ($scope.currentBalance - $scope.checkingMinimumBalance);
   $scope.diamondPrice = 0;
   $scope.ringPrice = 0;
   $scope.salesTax='4.5%';
-  $scope.warranty=100;
+  $scope.warranty=0;
   $scope.estimateWaitTime = '';
   $scope.calculateWaitTime = ()=>{
     let estimateWaitTime = calculateWaitTime(parseFloat($scope.currentBalanceMinusCheckingMinimum),
