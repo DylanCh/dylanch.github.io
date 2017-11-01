@@ -80,7 +80,7 @@ var calculateTotalCost = (diamond,ring,warranty)=>{
 };
 
 var diamondFunCtrl = ($scope)=>{
-  $scope.currentBalance = 3455.35;
+  $scope.currentBalance = 4193.76;
   $scope.checkingMinimumBalance = checkingMinimumBalance;
   $scope.currentBalanceMinusCheckingMinimum = ($scope.currentBalance - $scope.checkingMinimumBalance);
   $scope.diamondPrice = 0;
