@@ -10,7 +10,7 @@ var dialogBox = function (modal,resizable,width,title){
     this.resizable = resizable;
     this.width = width;
     this.title = title;
-}
+};
 
 (function($){
     function openTerms(event){
