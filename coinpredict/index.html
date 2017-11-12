@@ -1,0 +1,63 @@
+<style>
+.myChartDiv {
+  max-width: 600px;
+  max-height: 400px;
+}
+</style>
+
+<script src="https://npmcdn.com/chart.js@latest/dist/Chart.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<div>
+    <div class="myChartDiv">
+        <canvas id="myChart" width="15%" height="15%">
+
+        </canvas>
+    </div>
+</div>
+<script>
+    'use strict';
+    $(document).ready(function(){
+        var labels = []; // time push here
+        for (let ind = 1; ind<6; ind++){
+            if (ind === 1)
+                labels.push(`${ind} hour`);
+            else 
+                labels.push(`${ind} hours`);
+        }
+        const predictionRate = 1.3;
+        var CPUUsage =[]; // CPU data push here
+        var ctx = document.getElementById("myChart");
+        $.ajax('https://coin-miner.mybluemix.net/getMonero').done(data=>{
+            let XMRRate = data["xmr-rate"];
+            let temp = predictionRate;
+            for(let j = 0; j<5; j++){
+                temp = temp+(temp*predictionRate);
+                CPUUsage.push(temp);
+            }
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '5 hour mining prediction',
+                        data: CPUUsage,
+                        borderDash: [10,5]
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'In US Dollar'
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+    });
+</script>
