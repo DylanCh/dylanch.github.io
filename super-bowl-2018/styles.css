@@ -1,0 +1,10 @@
+ body{
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/7e/US_Bank_Stadium_-_West_Facade.jpg");
+    background-size:100%;
+}
+
+.container{
+    width: 75%;
+    horizontal-align: center;
+    background-color: white;
+}
