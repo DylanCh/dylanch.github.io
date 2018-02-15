@@ -1,0 +1,21 @@
+ body{
+  background-image:url("http://res.freestockphotos.biz/pictures/11/11515-illustration-of-red-heart-tiles-pv.png");
+  background-size: cover;
+}
+
+#root{
+  width: 90%;
+  margin-top: 7%;
+}
+
+button {
+  background-color: blue !important;
+  border: 2px solid red !important;
+  border-radius: 20px !important;
+  margin-left: 76%;
+  font-style: italic;
+}
+
+#video {
+  margin-top: 20%;
+}
