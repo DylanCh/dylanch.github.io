@@ -8,15 +8,11 @@
         document.getElementById("crypto-price-header").innerHTML = selectedCrypto + " Current Price:";
         axios.get(API_URL + selectedCrypto + "-USD/buy")
             .then(function (response) {   
-                $('#crypto-price').each(function() {
-                    var $this = $(this);
-                    $({ countNum: $this.text()}).animate({ countNum: response.data.data.amount },                
-                    {                
-                      duration: 3000,
-                      easing:'linear',
-                      step: function() { $this.text(Math.floor(this.countNum)); },
-                      complete: function() { $this.text('$'+this.countNum);}                 
-                    }); 
+                $({ countNum: $('#crypto-price').text()}).animate({ countNum: response.data.data.amount },                
+                { 
+                  duration: 2000, easing:'linear', 
+                  step: function() { $('#crypto-price').text(Math.floor(this.countNum)); },
+                  complete: function() { $('#crypto-price').text('$'+this.countNum);} 
                 });
             })
             .catch(function (error) {
