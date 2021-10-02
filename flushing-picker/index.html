@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <div id="root">
+      
+    </<div>
+      <script>
+       const places = [
+         { name: 'Malaysian Restaurant', link: 'https://maps.apple.com/?address=135-17%2040th%20Rd,%20Flushing,%20NY%20%2011354,%20United%20States&ll=40.758689,-73.830887'},
+         { name: 'Shun Won (Cantonese, take out only)', link: 'https://maps.apple.com/?address=41-27%20Main%20St,%20Flushing,%20NY%20%2011355,%20United%20States&ll=40.757502,-73.828900'},
+         { name: 'Prince Noodles and Cafe (Cantonese/Hong Kong-style wonton noodle)', link: 'https://maps.apple.com/?address=40-09%20Prince%20St,%20Flushing,%20NY%20%2011354,%20United%20States&ll=40.758518,-73.831456'}, 
+       ];
+        
+        
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+      <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+      <script type="text/babel">
+        ReactDOM.render(
+          <section>
+            <table>
+              <thead><tr><th>Name</th><th>Apple Maps Link</th></tr></thead>
+              <tbody>
+              { places.map(x => <tr><td>{x.name}</td><td><a href={x.link}>Link</a></td></tr> }
+              </tbody>
+            </table>
+          </section>, document.getElementById("root")
+        );
+      </script>
+  </body>
+</html>
