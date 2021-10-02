@@ -22,7 +22,7 @@
             <table>
               <thead><tr><th>Name</th><th>Apple Maps Link</th></tr></thead>
               <tbody>
-              { places.map(x => <tr><td>{x.name}</td><td><a href={x.link}>Link</a></td></tr> }
+              { places.map(x => (<tr><td>{x.name}</td><td><a href={x.link}>Link</a></td></tr>)) }
               </tbody>
             </table>
           </section>, document.getElementById("root")
