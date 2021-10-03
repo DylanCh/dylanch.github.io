@@ -26,9 +26,15 @@ ReactDOM.render(
     <div className='col-xs-10 col-md-10'>
       <div className='row'>
         <table className='table'>
-          <thead><tr><th>Name</th><th>Apple Maps Link</th><th></th></tr></thead>
+          <thead><tr><th>Name</th><th>Apple Maps Link</th><th></th><th></th></tr></thead>
           <tbody>
-          { places.map(x => (<tr><td>{x.name}</td><td><a href={x.link}>{x.address}</a></td><td><a href={"sms:?body=I picked "+x.name+' @ '+x.address}>Pick this</a></td></tr>)) }
+          { places.map(x => (
+            <tr>
+               <td>{x.name}</td>
+               <td><a href={x.link}>{x.address}</a></td>
+               <td><a href="#" onclick={()=>{ navigator.clipboard.writeText("I picked "+x.name+' @ '+x.address); alert('Address copied'); }}</td>
+               <td><a href="sms:">Text me</a></td>
+             </tr>)) }
           </tbody>
         </table>
        </div>
