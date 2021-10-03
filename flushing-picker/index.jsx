@@ -28,7 +28,7 @@ ReactDOM.render(
         <table className='table'>
           <thead><tr><th>Name</th><th>Apple Maps Link</th><th></th></tr></thead>
           <tbody>
-          { places.map(x => (<tr><td>{x.name}</td><td><a href={x.link}>{x.address}</a></td><td><a href="sms:">Pick this</a></td></tr>)) }
+          { places.map(x => (<tr><td>{x.name}</td><td><a href={x.link}>{x.address}</a></td><td><a href={"sms:?body=I picked "+x.name+' @ '+x.address}>Pick this</a></td></tr>)) }
           </tbody>
         </table>
        </div>
