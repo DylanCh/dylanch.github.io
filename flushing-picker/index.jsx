@@ -32,7 +32,7 @@ ReactDOM.render(
             <tr>
                <td>{x.name}</td>
                <td><a href={x.link}>{x.address}</a></td>
-               <td><a href="#" onclick={()=>{ navigator.clipboard.writeText("I picked "+x.name+' @ '+x.address); alert('Address copied'); }}</td>
+               <td><a href="#" onclick={()=>{ navigator.clipboard.writeText(x.address); alert('Address copied'); }}>Copy address</a></td>
                <td><a href="sms:">Text me</a></td>
              </tr>)) }
           </tbody>
