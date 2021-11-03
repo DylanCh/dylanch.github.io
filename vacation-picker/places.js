@@ -40,6 +40,10 @@ const places = [
         map: 'https://www.google.com/maps/place/Kaaterskill+Falls/@42.1934368,-74.0719472,15z'
       },
       {
+        name: 'Ashokan Resevoir',
+        map: 'https://www.google.com/maps/place/Ashokan+Quarry+Trail/@41.9402537,-74.2307719,14z'
+      },
+      {
         name: 'Yankee Stadium',
         map: 'https://maps.apple.com/?address=1%20East%20161st%20Street,%20Bronx,%20NY%2010451,%20United%20States&ll=40.829617,-73.926342'
       },
