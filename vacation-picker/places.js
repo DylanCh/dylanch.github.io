@@ -27,6 +27,11 @@ const places = [
         map: 'https://maps.apple.com/?address=6000%20Universal%20Boulevard,%20Orlando,%20FL%2032819,%20United%20States&ll=28.476312,-81.468430',
         region: 'Central Florida'
       },
+      {
+        name: 'Clearwater Marine Aquarium',
+        map: 'https://maps.apple.com/?address=249%20Windward%20Passage,%20Clearwater,%20FL%2033767,%20United%20States&ll=27.976870,-82.819052',
+        region: 'Tampa'
+      }
     ]
   },
   {
@@ -70,12 +75,12 @@ const places = [
       {
         name: 'Jones Beach State Park',
         map: 'https://maps.apple.com/?address=2400%20Ocean%20Parkway,%20Wantagh,%20NY%2011793,%20United%20States&ll=40.594494,-73.508343',
-        egion: 'Long Island'
+        region: 'Long Island'
       },
       {
         name: 'Montauk Lighthouse',
         map: 'https://maps.apple.com/?address=2000%20Montauk%20Hwy,%20Montauk,%20NY%2011954,%20United%20States&ll=41.071004,-71.857249',
-        egion: 'Long Island'
+        region: 'Long Island'
       },
       {
         name: 'World Trade Center',
@@ -83,8 +88,18 @@ const places = [
         region: 'NYC'
       },
       {
-        name: 'The Edge',
+        name: 'Edge Observatory Deck',
         map:'https://maps.apple.com/?address=30%20Hudson%20Yards,%20New%20York,%20NY%2010001,%20United%20States&ll=40.754007,-74.000580',
+        region: 'NYC'
+      },
+      {
+        name: 'Far Rockaway Beach',
+        map: 'https://maps.apple.com/?address=Beach%2096th%20St%20%26%20Rockaway%20Fwy,%20Rockaway%20Beach,%20NY%20%2011693,%20United%20States&ll=40.582830,-73.816338',
+        region: 'NYC'
+      },
+      {
+        name: 'New York Aquarium',
+        map:'https://maps.apple.com/?address=602%20Surf%20Ave,%20Brooklyn,%20NY%2011224,%20United%20States&ll=40.574335,-73.974826',
         region: 'NYC'
       }
     ]
