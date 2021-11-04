@@ -7,8 +7,8 @@ window.onload = () => {
     card.innerHTML = (
       `<div class="card-header">${state.state}</div>
           <div class="card-body"><table class="table">
-              <thead><tr><th>Place</th><th>Map</th><th>Have I been?</th></tr></thead>
-              <tbody>${state.places.sort(regionSort).map(x => '<tr><td>'+x.name + '</td><td><a href="'+ x.map +'">'+ x.region +'</a></td><td><input type="checkbox"/></td></tr>').join('\n')}</tbody>
+              <thead><tr><th>Place</th><th>Region</th><th>Map</th><th>Have I been?</th></tr></thead>
+              <tbody>${state.places.sort(regionSort).map(x => '<tr><td>'+x.name + '</td><td>'+ x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox"/></td></tr>').join('\n')}</tbody>
             </table>
           </div>
         </div>`);
