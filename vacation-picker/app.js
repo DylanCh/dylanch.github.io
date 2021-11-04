@@ -8,7 +8,12 @@ window.onload = () => {
       `<div class="card-header">${state.state}</div>
           <div class="card-body"><table class="table">
               <thead><tr><th>Place</th><th>Region</th><th>Map</th><th>Have I been?</th></tr></thead>
-              <tbody>${state.places.sort(regionSort).map(x => '<tr><td>'+x.name + '</td><td>'+ x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox"/></td></tr>').join('\n')}</tbody>
+              <tbody>
+                ${state.places
+                .sort(regionSort)
+                .map(x => '<tr><td><a href="https://duckduckgo.com/?q='+ encodeURI(x.name) +'&t=h_&iax=images&ia=images">'+x.name+'</a></td><td>'
+                    + x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox"/></td></tr>').join('\n')}
+              </tbody>
             </table>
           </div>
         </div>`);
