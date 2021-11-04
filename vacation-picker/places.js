@@ -68,6 +68,16 @@ const places = [
         region: 'Long Island'
       },
       {
+        name: 'Jones Beach State Park',
+        map: 'https://maps.apple.com/?address=2400%20Ocean%20Parkway,%20Wantagh,%20NY%2011793,%20United%20States&ll=40.594494,-73.508343',
+        egion: 'Long Island'
+      },
+      {
+        name: 'Montauk Lighthouse',
+        map: 'https://maps.apple.com/?address=2000%20Montauk%20Hwy,%20Montauk,%20NY%2011954,%20United%20States&ll=41.071004,-71.857249',
+        egion: 'Long Island'
+      },
+      {
         name: 'World Trade Center',
         map:'https://maps.apple.com/?address=World%20Trade%20Center,%20Manhattan,%20New%20York,%20NY,%20United%20States&ll=40.711770,-74.012360',
         region: 'NYC'
