@@ -3,6 +3,11 @@ const places = [
     state: 'FL',
     places: [
       {
+        name: 'Southernmost Point of the Continental US',
+        map: 'https://www.google.com/maps/place/Southernmost+Point+of+the+Continental+US/@24.5465218,-81.7996727,17z',
+        region: 'Key West'
+      },
+      {
         name: 'Clearwater Beach',
         map:'https://maps.apple.com/?address=Gulf%20of%20Mexico%20Dr,%20Longboat%20Key,%20FL%2034228,%20United%20States&ll=27.982654,-82.829254',
         region: 'Tampa'
@@ -101,6 +106,16 @@ const places = [
         name: 'New York Aquarium',
         map:'https://maps.apple.com/?address=602%20Surf%20Ave,%20Brooklyn,%20NY%2011224,%20United%20States&ll=40.574335,-73.974826',
         region: 'NYC'
+      },
+      {
+        name: 'Lake George (New York)',
+        map: 'https://maps.apple.com/?address=Lake%20George,%20NY,%20United%20States&ll=43.431521,-73.716505&lsp=6489',
+        region: 'Upstate'
+      },
+      {
+        name: 'Prospect Mountain',
+        map: 'https://www.google.com/maps/place/Prospect+Mountain+Summit/@43.4255641,-73.7467631,16z/',
+        region: 'Upstate'
       }
     ]
   },
