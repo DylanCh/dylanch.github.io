@@ -130,6 +130,7 @@ const places = [
       {
         name: 'American Museum of Natural History',
         map: 'https://maps.apple.com/?address=200%20Central%20Park%20W,%20New%20York,%20NY%2010024,%20United%20States&ll=40.781069,-73.974262',
+        region: 'NYC'
       }
     ]
   },
