@@ -40,6 +40,16 @@ const places = [
     ]
   },
   {
+    state: 'IN',
+    places:[
+      {
+        name: 'Eiteljorg Museum of American Indians and Western Art',
+        map:'https://maps.apple.com/?address=500%20W%20Washington%20St,%20Indianapolis,%20IN%20%2046204,%20United%20States&ll=39.768568,-86.167772',
+        region: 'Indianapolis'
+      }
+    ]
+  },
+  {
     state: 'NY',
     places:[
       {
@@ -116,6 +126,10 @@ const places = [
         name: 'Prospect Mountain',
         map: 'https://www.google.com/maps/place/Prospect+Mountain+Summit/@43.4255641,-73.7467631,16z/',
         region: 'Upstate'
+      },
+      {
+        name: 'American Museum of Natural History',
+        map: 'https://maps.apple.com/?address=200%20Central%20Park%20W,%20New%20York,%20NY%2010024,%20United%20States&ll=40.781069,-73.974262',
       }
     ]
   },
