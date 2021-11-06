@@ -49,13 +49,14 @@ window.onload = () => {
         ]
        };
       
-      if(!places.any(x => x.state === state)){
+      let selectedState = places.filter(x => x.state === state);
+      if(!pselectedState.length <= 0){
         places.push(added);
       }
       else{
-        if(places.filter(x => x.state === state)[0].places.length === 0)
-          places.filter(x => x.state === state)[0].places = [added.places[0]];
-        else places.filter(x => x.state === state)[0].places.push(added.places[0]);
+        if(pselectedState[0].places.length === 0)
+          pselectedState[0].places = [added.places[0]];
+        else pselectedState[0].places.push(added.places[0]);
       }
       
       localStorage['places'] = JSON.stringify(places);
