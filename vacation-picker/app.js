@@ -26,7 +26,7 @@ window.onload = () => {
       let option = document.createElement('option');
       option.value = state;
       option.innerText = state;
-      document.getElementById('states').append(option);
+      document.getElementById('state').append(option);
     }
     
     const form = document.getElementsByTagName('form')[0];
