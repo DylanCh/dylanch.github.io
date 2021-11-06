@@ -34,18 +34,28 @@ window.onload = () => {
     const form = document.getElementsByTagName('form')[0];
     form.addEventListener('submit', e => {
       e.preventDefault();
-      const formData = new FormData(form);
-      const state = formData['state'];
-      if(availableStates.indexOf(state) < 0){ alert(`${state} is not a valid state`); return }
+      const state = document.getElementById('state').value;      
+      if(!state || availableStates.indexOf(state) < 0){ alert(`${state} is not a valid state`); return }
       
-      let added = { state, place: [ { name: formData['attraction'], map: formData['map'], region: formData['region'], checked: true  } ]  };
+      let added = { 
+        state, 
+        place: [ 
+          { 
+            name: document.getElementById('attraction').value,
+            map: document.getElementById('map').value,
+            region: document.getElementById('region').value, 
+            checked: true  
+          } 
+        ]
+       };
+      
       if(!places.any(x => x.state === state)){
         places.push(added);
       }
       else{
         if(places.filter(x => x.state === state)[0].places.length === 0)
-          places.filter(x => x.state === state)[0].places = [added];
-        else places.filter(x => x.state === state)[0].places.push(added);
+          places.filter(x => x.state === state)[0].places = [added.places[0]];
+        else places.filter(x => x.state === state)[0].places.push(added.places[0]);
       }
       
       localStorage['places'] = JSON.stringify(places);
