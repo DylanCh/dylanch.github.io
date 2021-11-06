@@ -13,12 +13,41 @@ window.onload = () => {
                 ${state.places
                 .sort(regionSort)
                 .map(x => '<tr><td>'+ x.name +'&nbsp;&nbsp;<a href="https://duckduckgo.com/?q='+ encodeURI(x.name) +'&t=h_&iax=images&ia=images">🔎</a></td><td>'
-                    + x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox"/></td></tr>').join('\n')}
+                    + x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox" checked="'+ x.checked ? true : false
+                     +'" /></td></tr>').join('\n')}
               </tbody>
             </table>
           </div>
         </div>`);
 
-    document.getElementById('root').append(card);  
+    document.getElementById('root').append(card);
+    
+    for(const state of availableStates.sort()){
+      let option = document.createElement('option');
+      option.value = state;
+      option.innerText = state;
+      document.getElementById('states').append(option);
+    }
+    
+    const form = document.getElementsByTagName('form')[0];
+    form.addEventListener(e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const state = formData['state'];
+      if(availableStates.indexOf(state) < 0){ alert(`${state} is not a valid state`); return }
+      
+      let added = { state, place: [ { name: formData['attraction'], map: formData['map'], region: formData['region'], checked: true  } ]  };
+      if(!places.any(x => x.state === state)){
+        places.push(added);
+      }
+      else{
+        if(places.filter(x => x.state === state)[0].places.length === 0)
+          places.filter(x => x.state === state)[0].places = [added];
+        else places.filter(x => x.state === state)[0].places.push(added);
+      }
+      
+      localStorage['places'] = places;
+      return true;
+    });
   }
 };
