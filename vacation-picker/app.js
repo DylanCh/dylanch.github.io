@@ -63,12 +63,12 @@ window.onload = () => {
       }
       else{
         if(selectedState[0].places.length === 0)
-          selectedState[0].places = [added.places[0]];
+          selectedState[0].places = added.places;
         else selectedState[0].places.push(added.places[0]);
       }
       
       localStorage['places'] = JSON.stringify(places);
-      window.location.reload ();
+      window.location.reload(true);
     });
   }
 };
