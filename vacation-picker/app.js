@@ -1,4 +1,5 @@
 const regionSort = (x,y)=> { if(x.region > y.region) return 1; if(x.region<y.region) return -1; return 0 };
+const availableStates = ["WA","OR","CA","NV","ID","MT","WY","UT","AZ","NM","CO","AK","HI","TX","OK","KS","NE","SD","ND","MN","IA","WI","MO","AR","LA","MS","IL","IN","KY","TN","AL","GA","MI","NY","VT","NH","ME","OH","PA","MA","CT","RI","NJ","DE","DC","MD","WV","VA","NC","SC","FL"];
 
 window.onload = () => {
   for(const state of places){
@@ -18,6 +19,6 @@ window.onload = () => {
           </div>
         </div>`);
 
-    document.getElementById('root').append(card);
+    document.getElementById('root').append(card);  
   }
 };
