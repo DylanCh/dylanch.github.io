@@ -8,9 +8,22 @@
   <body>
     <div class="container">
       <h1 class="display-4">Next vaction picker</h1>
-      <div id="root">
-
+      <div class="row>
+        <form>
+          <div class="card">
+            <div class="form-group">
+             <label for="attraction">Attraction name</label>
+             <input name="attraction" id="attraction" required class="form-control" />
+             <label for="state">State</label>
+             <select name="state" id="state" required class="form-control"></select>
+            <label for="map">Map link (optional)</label>
+            <input name="map" id="map" class="form-control" />
+            <button type="button" class="btn btn-primary form-control">Add</button>                                                                                                                                        
+            </div>               
+          </div>
+        </form>            
       </div>
+      <div class="row" id="root"></div>
     </div>
     <script src="https://dylanch.github.io/vacation-picker/places.js"></script>
     <script src="https://dylanch.github.io/vacation-picker/app.js"></script>
