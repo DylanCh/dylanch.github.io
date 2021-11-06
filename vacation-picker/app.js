@@ -2,7 +2,10 @@ const regionSort = (x,y)=> { if(x.region > y.region) return 1; if(x.region<y.reg
 const availableStates = ["WA","OR","CA","NV","ID","MT","WY","UT","AZ","NM","CO","AK","HI","TX","OK","KS","NE","SD","ND","MN","IA","WI","MO","AR","LA","MS","IL","IN","KY","TN","AL","GA","MI","NY","VT","NH","ME","OH","PA","MA","CT","RI","NJ","DE","DC","MD","WV","VA","NC","SC","FL"];
 
 window.onload = () => {
-  for(const state of places){
+  if(!localStorage['places']){
+    localStorage.setItem('places',JSON.stringify(places));
+  }
+  for(const state of JSON.parse(localStorage['places'])){
     var card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = (
@@ -13,8 +16,7 @@ window.onload = () => {
                 ${state.places
                 .sort(regionSort)
                 .map(x => '<tr><td>'+ x.name +'&nbsp;&nbsp;<a href="https://duckduckgo.com/?q='+ encodeURI(x.name) +'&t=h_&iax=images&ia=images">🔎</a></td><td>'
-                    + x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox" checked="'+ x.checked ? true : false
-                     +'" /></td></tr>').join('\n')}
+                    + x.region +'</td><td><a href="'+ x.map +'">Map</a></td><td><input type="checkbox" /></td></tr>').join('\n')}
               </tbody>
             </table>
           </div>
@@ -46,7 +48,7 @@ window.onload = () => {
         else places.filter(x => x.state === state)[0].places.push(added);
       }
       
-      localStorage['places'] = places;
+      localStorage['places'] = JSON.stringify(places);
       return true;
     });
   }
