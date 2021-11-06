@@ -35,8 +35,8 @@ function loadPlaces(){
 window.onload = () => {
   const availableStates = ["WA","OR","CA","NV","ID","MT","WY","UT","AZ","NM","CO","AK","HI","TX","OK","KS","NE","SD","ND","MN","IA","WI","MO","AR","LA","MS","IL","IN","KY","TN","AL","GA","MI","NY","VT","NH","ME","OH","PA","MA","CT","RI","NJ","DE","DC","MD","WV","VA","NC","SC","FL"];
   
+  loadPlaces();
   
-    
     for(const state of availableStates.sort()){
       let option = document.createElement('option');
       option.value = state;
