@@ -27,7 +27,7 @@ window.onload = () => {
          };
 
         let selectedState = places.filter(x => x.state === state);
-        if(!selectedState.length <= 0){
+        if(selectedState.length <= 0){
           places.push(added);
         }
         else{
