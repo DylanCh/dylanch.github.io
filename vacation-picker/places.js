@@ -1,5 +1,20 @@
 const places = [
   {
+    state: 'CO',
+    places:[
+      {
+        name: 'Garden of the Gods',
+        map:'https://www.google.com/maps/place/Garden+of+the+Gods+Visitor+and+Nature+Center/@38.8783536,-104.8719443,17z',
+        region: 'Colorado Springs'
+      },
+      {
+        name:'Denver Museum of Nature & Science',
+        map: 'https://www.google.com/maps/place/Denver+Museum+of+Nature+%26+Science/@39.7475261,-104.9449965,17z',
+        region: 'Denver'
+      }
+    ]
+  },
+  {
     state: 'FL',
     places: [
       {
