@@ -90,6 +90,16 @@ const places = [
     ]
   },
   {
+    state: 'GA',
+    places:[
+      {
+        name: 'Georgia State Railroad Museum',
+        map:'https://maps.apple.com/?address=655%20Louisville%20Rd,%20Savannah,%20GA%20%2031401,%20United%20States&ll=32.075343,-81.102429',
+        region: 'Savannah'
+      }
+    ]
+  },
+  {
     state: 'IN',
     places:[
       {
@@ -106,6 +116,16 @@ const places = [
         name:'French Quarter',
         map:'https://maps.apple.com/?address=730%20Dumaine%20St,%20New%20Orleans,%20LA%20%2070116,%20United%20States&ll=29.959971,-90.064041',
         region:'New Orleans'
+      }
+    ]
+  },
+  {
+    state: 'MA',
+    places:[
+      {
+        name: 'USS Constitution',
+        map: 'https://maps.apple.com/?address=22%20First%20Ave,%20Boston%20MA%2002129,%20United%20States&ll=42.373926,-71.055375',
+        region: 'Boston'
       }
     ]
   },
@@ -216,6 +236,16 @@ const places = [
         name: 'American Museum of Natural History',
         map: 'https://maps.apple.com/?address=200%20Central%20Park%20W,%20New%20York,%20NY%2010024,%20United%20States&ll=40.781069,-73.974262',
         region: 'NYC'
+      }
+    ]
+  },
+  {
+    state: 'SC',
+    places:[
+      {
+        name:'Hilton Head Island',
+        map: 'https://maps.apple.com/?address=Hilton%20Head%20Island,%20SC,%20United%20States&ll=32.161994,-80.752025',
+        region: 'Savannah'
       }
     ]
   },
