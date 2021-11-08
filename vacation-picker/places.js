@@ -116,6 +116,11 @@ const places = [
         name:'French Quarter',
         map:'https://maps.apple.com/?address=730%20Dumaine%20St,%20New%20Orleans,%20LA%20%2070116,%20United%20States&ll=29.959971,-90.064041',
         region:'New Orleans'
+      },
+      {
+        name: 'Café du Monde',
+        map: 'https://maps.apple.com/?address=800%20Decatur%20Street,%20New%20Orleans,%20LA%2070116,%20United%20States&ll=29.957634,-90.061747',
+        region: 'New Orleans'
       }
     ]
   },
@@ -125,6 +130,11 @@ const places = [
       {
         name: 'USS Constitution',
         map: 'https://maps.apple.com/?address=22%20First%20Ave,%20Boston%20MA%2002129,%20United%20States&ll=42.373926,-71.055375',
+        region: 'Boston'
+      },
+      {
+        name: 'Charles River Cruise',
+        map: 'https://maps.apple.com/?address=100%20Cambridgeside%20Pl,%20Cambridge,%20MA%20%2002141,%20United%20States&ll=42.367931,-71.075915',
         region: 'Boston'
       }
     ]
