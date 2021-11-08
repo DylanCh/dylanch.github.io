@@ -123,6 +123,21 @@ const places = [
     state: 'NY',
     places:[
       {
+        name: 'Roosevelt Island Tram',
+        map: 'https://maps.apple.com/?address=E%2059th%20St%20%26%202nd%20Avenue,%20New%20York,%20NY%2010022,%20United%20States&ll=40.761130,-73.964231',
+        region: 'NYC'
+      },
+      {
+        name: 'Brooklyn Bridge',
+        map: 'https://maps.apple.com/?address=Brooklyn%20Bridge,%20New%20York,%20NY%20%2010002,%20United%20States&ll=40.705862,-73.996561',
+        region: 'NYC'
+      },
+      {
+        name: 'Govenor\'s Island',
+        map:'https://maps.apple.com/?address=New%20York,%20NY,%20United%20States&ll=40.693171,-74.015057',
+        region:'NYC'
+      },
+      {
         name: 'Little Island @Pier55',
         map: 'https://maps.apple.com/?address=West%2013th%20Street,%20New%20York,%20NY%2010014,%20United%20States&ll=40.741990,-74.010633',
         region: 'NYC'
@@ -201,6 +216,21 @@ const places = [
         name: 'American Museum of Natural History',
         map: 'https://maps.apple.com/?address=200%20Central%20Park%20W,%20New%20York,%20NY%2010024,%20United%20States&ll=40.781069,-73.974262',
         region: 'NYC'
+      }
+    ]
+  },
+  {
+    state: 'TN',
+    places:[
+      {
+        name: 'Beale Street',
+        map: 'https://maps.apple.com/?address=203%20Beale%20St,%20Unit%20300,%20Memphis,%20TN%20%2038103,%20United%20States&ll=35.139546,-90.051863',
+        region: 'Memphis'
+      },
+      {
+        name: 'Memphis Rock N\' Soul Museum',
+        map: 'https://maps.apple.com/?address=191%20Beale%20St,%20Unit%20100,%20Memphis,%20TN%2038103,%20United%20States&ll=35.139334,-90.051663',
+        region: 'Memphis'
       }
     ]
   },
