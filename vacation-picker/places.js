@@ -1,5 +1,30 @@
 const places = [
   {
+    state: 'AL',
+    places:[
+      {
+        name:'Orange Beach (Alabama)',
+        map:'https://maps.apple.com/?address=26032%20Perdido%20Beach%20Blvd,%20Orange%20Beach,%20AL%20%2036561,%20United%20States&ll=30.269344,-87.580406',
+        region:'Mobile'
+      }
+    ]
+  },
+  {
+    state:'CA',
+    places:[
+      {
+        name:'Santa Cruz Beach',
+        map: 'https://maps.apple.com/?address=400%20Beach%20St,%20Santa%20Cruz,%20CA%20%2095060,%20United%20States&ll=36.964368,-122.017202',
+        region: 'Bay Area'
+      },
+      {
+        name: 'Stanford University',
+        map: 'https://maps.apple.com/?address=450%20Jane%20Stanford%20Way,%20Stanford,%20CA%20%2094305,%20United%20States&ll=37.426816,-122.170490',
+        region: 'Bay Area'
+      }
+    ]
+  },
+  {
     state: 'CO',
     places:[
       {
@@ -10,6 +35,16 @@ const places = [
       {
         name:'Denver Museum of Nature & Science',
         map: 'https://www.google.com/maps/place/Denver+Museum+of+Nature+%26+Science/@39.7475261,-104.9449965,17z',
+        region: 'Denver'
+      },
+      {
+        name: 'Pheonix Gold Mine',
+        map: 'https://maps.apple.com/?address=800%20Trail%20Creek%20Rd,%20Idaho%20Springs,%20CO%20%2080452,%20United%20States&ll=39.748848,-105.566382',
+        region:'Denver'
+      },
+      {
+        name: 'Georgetown Loop Railway',
+        map:'https://maps.apple.com/?address=646%20Loop%20Dr,%20Georgetown,%20CO%2080444,%20United%20States&ll=39.700984,-105.706783',
         region: 'Denver'
       }
     ]
@@ -61,6 +96,26 @@ const places = [
         name: 'Eiteljorg Museum of American Indians and Western Art',
         map:'https://maps.apple.com/?address=500%20W%20Washington%20St,%20Indianapolis,%20IN%20%2046204,%20United%20States&ll=39.768568,-86.167772',
         region: 'Indianapolis'
+      }
+    ]
+  },
+  {
+    state: 'LA',
+    places:[
+      {
+        name:'French Quarter',
+        map:'https://maps.apple.com/?address=730%20Dumaine%20St,%20New%20Orleans,%20LA%20%2070116,%20United%20States&ll=29.959971,-90.064041',
+        region:'New Orleans'
+      }
+    ]
+  },
+  {
+    state: 'MS',
+    places:[
+      {
+        name: 'Biloxi Beach',
+        map: 'https://maps.apple.com/?address=2200%20Beach%20Blvd,%20Biloxi,%20MS%2039531,%20United%20States&ll=30.391432,-88.967474',
+        region:'Mississippi Gulf Coast'
       }
     ]
   },
