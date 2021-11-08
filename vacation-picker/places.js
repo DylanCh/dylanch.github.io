@@ -236,6 +236,16 @@ const places = [
         name: 'American Museum of Natural History',
         map: 'https://maps.apple.com/?address=200%20Central%20Park%20W,%20New%20York,%20NY%2010024,%20United%20States&ll=40.781069,-73.974262',
         region: 'NYC'
+      },
+      {
+        name: 'Central Park',
+        map: 'https://maps.apple.com/?address=New%20York,%20NY%20%2010028,%20United%20States&ll=40.782544,-73.965535',
+        region: 'NYC'
+      },
+      {
+        name: 'Long Beach',
+        map: 'https://maps.apple.com/?address=300%20W%20Broadway,%20Long%20Beach,%20NY%20%2011561,%20United%20States&ll=40.583160,-73.666248',
+        region: 'Long Island'
       }
     ]
   },
@@ -274,5 +284,4 @@ const places = [
       }
     ]
   }
-
 ];
