@@ -46,6 +46,11 @@ const places = [
         name: 'Georgetown Loop Railway',
         map:'https://maps.apple.com/?address=646%20Loop%20Dr,%20Georgetown,%20CO%2080444,%20United%20States&ll=39.700984,-105.706783',
         region: 'Denver'
+      },
+      {
+        name: 'Red Rocks Park and Amphitheatre',
+        map: 'https://maps.apple.com/?address=18300%20W%20Alameda%20Pkwy,%20Morrison,%20CO%2080465,%20United%20States&ll=39.665533,-105.205159',
+        region: 'Denver'
       }
     ]
   },
@@ -255,6 +260,11 @@ const places = [
       {
         name: 'Long Beach',
         map: 'https://maps.apple.com/?address=300%20W%20Broadway,%20Long%20Beach,%20NY%20%2011561,%20United%20States&ll=40.583160,-73.666248',
+        region: 'Long Island'
+      },
+      {
+        name: 'Cradle of Aviation Museum',
+        map: 'https://maps.apple.com/?address=Charles%20Lindbergh%20Blvd,%20Garden%20City,%20NY%2011530,%20United%20States&ll=40.728592,-73.597487',
         region: 'Long Island'
       }
     ]
