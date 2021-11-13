@@ -32,3 +32,7 @@ window.onload = () => {
     document.getElementById('root').append(card);
   }
 };
+
+window.onbeforeunload = () =>{
+  localStorage.removeItem('places');
+};
