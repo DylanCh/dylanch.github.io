@@ -37,6 +37,9 @@ window.onload = () => {
         }
 
         localStorage['places'] = JSON.stringify(places);
+        let addedPlaces = localStorage['added-places'] ? JSON.parse(localStorage['added-places']) : [];
+        addedPlaces.push(added);
+        localStorage['added-places'] = JSON.stringify(addedPlaces);
         window.location.reload(true);
       });
 }
