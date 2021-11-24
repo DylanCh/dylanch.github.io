@@ -168,6 +168,7 @@ user-select:none;
             if(word === BANKRUPT)
                 arc.fill = '#000000';
             else if (word.startsWith('Lose')){ arc.fill = '#FFFFFF'; }
+            else if (word.startsWith('Free')){ arc.fill = '#00FFFF'; }
             else arc.fill = COLORS[i % numColors];
             const textVertex = {
                 x:
@@ -182,7 +183,16 @@ user-select:none;
             const text = two.makeText(word, textVertex.x, textVertex.y);
             text.rotation = rotationUnit * i - PI / 2;
             text.alignment = 'right';
-            text.fill = word === BANKRUPT ? '#fff' : '#000';
+            switch (word) {
+              case BANKRUPT:
+                text.fill = '#fff'
+                break;
+              case 'Free Play':
+                text.fill = '#274e13'
+                break;
+              default: text.fill = '#000';
+
+            }
             text.size = radius * ratios.textSize;
             return group.add(arc, text);
         });
